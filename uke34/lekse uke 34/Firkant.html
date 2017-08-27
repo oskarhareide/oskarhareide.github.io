@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Firkant</title>
+  <style>
+    #firkant {
+      width: 100px;
+      height: 50px;
+      background-color: cornflowerblue;
+      transition: 1s;
+    }
+
+    #bilde {
+      background-image: url("phteven.jpg");
+      background-size: cover;
+      width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+    <div id="firkant"></div>
+
+    <div id="bilde"></div>
+
+    <script type="text/javascript">
+
+          document.onclick = (klikk) => {
+          document.body.style.backgroundColor = "pink";
+          document.getElementById("bilde").src = "phteven2.jpg";
+          document.getElementById("firkant").style.backgroundColor = "orange";
+          document.getElementById("firkant").style.width = `${klikk.clientX}px`;
+          document.getElementById("firkant").style.height = `${klikk.clientY}px`;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Prøv deg selv side 42</title>
+</head>
+<body>
+  <h1>OVerskrrririft</h1>
+  <p id="avsnitt">Hei je gheter oskar dette er den uendrede teksten</p>
+
+  <img id="bilde" src="phteven.jpg" alt="uffameg,dette funket ikke">
+  <script type="text/javascript">
+    document.getElementById("avsnitt").innerHTML = "Dette er den endrede teksten."
+    document.getElementById("bilde").src="phteven2.jpg"
+  </script>
+
+  <div id="takst">Dettte er den teksten som vi skal etterlikne.</div>
+  <div id="tekst">Dette er teksten som etterhvert skal bli endret.</div>
+
+  <script type="text/javascript">
+      document.getElementById("tekst").innerHTML = document.getElementById("takst").innerHTML;
+  </script>
+</body>
+</html>
