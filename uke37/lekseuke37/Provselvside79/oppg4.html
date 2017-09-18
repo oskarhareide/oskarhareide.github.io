@@ -1,0 +1,27 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oppgave 4</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      let dag = prompt("Vennligst oppgi hvilken ukedag det er :)");
+      let dato = prompt("Hvilken dato er det da?");
+
+      if(dag.toUpperCase() == "FREDAG" && dato == "13"){
+        document.write("Nå må du passe deg!! Det er fredag den 13.!");
+        document.body.innerHTML += '<div><img src="fredag13.jpg" alt="" /></div>';
+      }else if (dag.toUpperCase() == "FREDAG" && dato != 13) {
+        document.write(`GOD HELG!!!`)
+      } else {
+        document.write("Ha en fin dag videre :)");
+        document.body.innerHTML += '<div><img src="goddag.jpg" alt="" /></div>';
+      }
+    </script>
+
+  </body>
+  </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Streker</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+    #minCanvas {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="minCanvas" width="200" height="100"></canvas>
+
+  <script type="text/javascript">
+
+    var minCanvas = document.getElementById("minCanvas");
+    var ctx = minCanvas.getContext("2d");
+
+    var bredde = innerWidth; //Bredden på vinduet i nettleseren
+    var hoyde = innerHeight; //Høyden på vinduet i nettleseren
+
+    minCanvas.width = bredde;
+    minCanvas.height = hoyde;
+
+    function tegnStrek() {
+      var farge = `hsla(${Math.random()*360}, 100%, 50%, 0.4)`;
+      ctx.strokeStyle = farge;
+      var x = Math.random() * bredde;
+      var y = Math.random() * hoyde;
+
+        ctx.beginPath();
+        ctx.moveTo(innerWidth/2, innerHeight/2); //Midt på skjermen
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.closePath();
+
+      minCanvas.style.transform = `rotate(${Math.random()*360}deg) scale(${x/1000})`;
+    }
+
+    setInterval(tegnStrek, 0.1);
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="ting" width="300" height="300"></canvas>
+
+  <script type="text/javascript">
+
+    let minCanvas = document.getElementById('ting');
+    let ctx = minCanvas.getContext("2d");
+
+    let bredde = innerWidth;
+    let hoyde = innerHeight;
+
+    minCanvas.width = bredde;
+    minCanvas.height = hoyde;
+
+    let outerColor = 'red';
+    let innerColor1 = 'white';
+    let innerColor2 = 'blue';
+
+    function flagg(){
+      let x = Math.random() * bredde;
+      let y = Math.random() * hoyde;
+
+      ctx.beginPath();
+      ctx.fillStyle = outerColor;
+      ctx.fillRect(x, y, 200, 125);
+      ctx.closePath();
+
+      ctx.fillStyle = innerColor1;
+
+      ctx.beginPath();
+      ctx.fillRect(x + 70, y, 30, 125);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillRect(x, y +46, 200, 30);
+      ctx.closePath();
+
+      ctx.fillStyle = innerColor2;
+
+      ctx.beginPath();
+      ctx.fillRect(x + 77.5, y, 15, 125);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillRect(x, y + 53.5, 200, 15);
+      ctx.closePath();
+    }
+
+      setInterval(flagg, 1000);
+
+    function bytteflagg(){
+      outerColor = "rgb(85, 100, 238)";
+      innerColor1 = 'yellow';
+      innerColor2 = 'yellow';
+    }
+    document.body.addEventListener('click',bytteflagg);
+
+  </script>
+</body>
+</html>

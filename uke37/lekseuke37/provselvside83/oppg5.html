@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppg 5</title>
+</head>
+<body>
+  <script>
+    let tall1 = parseInt(prompt("Første tall"));
+    let metode = prompt("Hviklen regnemetode vil du bruke?");
+    let tall2 = parseInt(prompt("Andre tall"));
+
+    let sum = tall1 + tall2;
+    let sub = tall1 - tall2;
+    let prod = tall1 * tall2;
+    let div = tall1/tall2;
+
+
+
+    if (metode == "+"){
+      document.write(sum);
+    } else if (metode == "-") {
+      document.write(sub);
+    } else if (metode == "*") {
+      document.write(prod);
+    } else if (metode == "/") {
+      document.write(div);
+    }
+  </script>
+</body>
+</html>

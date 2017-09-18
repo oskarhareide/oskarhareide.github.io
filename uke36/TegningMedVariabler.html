@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tegning med variabler</title>
+  <style>
+    #minCanvas {
+      background-color: olive;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="minCanvas" width="1920" height="1080"></canvas>
+
+  <script>
+    var minCanvas = document.getElementById("minCanvas");
+    var ctx = minCanvas.getContext("2d");
+
+    function draw() {
+      ctx.clearRect(0, 0, 1920, 1080);
+
+      var x = Math.random() * 1920; //startposisjoner for hodet
+      var y = Math.random() * 1080;
+
+      //tegner hodet
+      ctx.fillStyle = `hsl(${Math.random()*360}, 100%, 50%)`;
+      ctx.fillRect(x, y, 50, 50);
+      //tenger øyner
+      ctx.fillStyle = "blue";
+      ctx.fillRect(x + 10, y + 10, 5, 5);
+      ctx.fillRect(x + 35, y + 10, 5, 5);
+
+      //tegner munnen
+      ctx.fillRect(x + 10, y + 30, 30, 4);
+
+    }
+
+    setInterval(draw, 1000);
+
+
+
+  </script>
+
+</body>
+</html>

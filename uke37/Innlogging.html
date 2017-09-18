@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Logg Inn</title>
+</head>
+<body>
+  <input type="text" id="username" name="" value="">
+  <input type="password" id="passord">
+  <h1 id="info"></h1>
+  <button onclick="sjekk()">Logg Inn</button>
+
+  <script>
+    let username = document.getElementById("username");
+    let password = document.getElementById("passord");
+    let info = document.getElementById("info");
+
+    function sjekk() {
+      if(username.value.toUpperCase() === "JONAS" && password.value === "AP"){
+        info.innerHTML = "Bra du er logget inn!!"
+      }
+      else {
+        info.innerHTML = "FEIL PASSORD ELLER BRUKERNAVN";
+      }
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Variabler</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: repeat(50, 1fr);
+      background-color: black;
+    }
+    div {
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+    var x = 0;
+    var tekst =`Hva skal jeg si? Jeg var ung og trengte pengene. I tillegg ville jeg gjerne ha erfaringen jeg så sårt manglet. Derfor takket jeg ja til sommervikariatet i det ukentlige sladrebladet. Jeg var nyutdannet journalist.
+
+Som regel ble jeg satt til å oversette notiser fra utenlandske blader av samme kaliber – ting som fikk plass på småstoffsidene. Men en dag landet et intervjuoppdrag på bordet mitt.
+
+– Jeanette Backman?
+
+– Typen hennes har gått fra henne. Det må vi gjøre noe på.
+
+– «Porno-Jeanette»? Trodde dette magasinet prøvde å være i hvert fall litt familievennlig?
+
+– Og det er vi. Vi vinkler saken slik at vi pirrer lesernes kikkerinstinkt, men skriver ikke mer enn at vi beholder dyden. Desken har for så vidt skrevet saken ferdig allerede, så ikke gjør deg for mye bry. Bare reis ut og få noen sitater vi kan dytte inn. Gjerne tåredryppende.
+
+– Skal jeg ha med fotograf?
+
+– Er du gal? Vi bruker selvfølgelig faksimiler fra bladet hennes.
+
+– Jeg kommer aldri til å få en anstendig jobb etter dette, sukket jeg.
+
+Men sant å si hadde jeg litt sans for Jeanette. Det var noe med henne, noe som kom frem i et intervju i Dagbladet to måneder tidligere, som fikk meg til å tro at hun egentlig var litt for smart for den bransjen hun drev i. I tillegg visste hun å sette grenser: På film hadde hun bare sex med andre jenter. Etter en tids overveielse hadde jeg endt opp med å leie to av filmene hennes.`;
+
+    alert(tekst[9]);
+
+    var y = 1;
+
+    function skriv(){
+      //Lager et div element med en bokstav
+      var div = document.createElement("div");
+      div.innerHTML = tekst[x];
+      //legger div-element inn i body
+      document.body.appendChild(div);
+
+      div.style.transform = `scale(${Math.random() * 8})`;
+      div.style.color = `hsl(${Math.random()*240}, 100%, 50%)`;
+
+      document.body.style.gridTemplateColumns = `repeat(${y}, 1fr)`;
+      document.body.style.transform = `scale(${Math.random()*2})`;
+      y++;
+      if(y > 50) {
+        y = 1;
+      }
+      x++;
+    }
+    setInterval(skriv, 1)
+  </script>
+
+</body>
+</html>

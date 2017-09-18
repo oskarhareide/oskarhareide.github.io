@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tegning</title>
+  <style>
+    #minCanvas {
+      background-color: seagreen;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="minCanvas" width="400" height="300">Din nettleser støtter ikke canvas</canvas>
+
+  <script>
+    var minCanvas = document.getElementById("minCanvas");
+    var ctx = minCanvas.getContext("2d");
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(20 , 40, 100, 50);
+    ctx.fillStyle = "orange";
+    ctx.fillRect(30, 50, 10, 10);
+    ctx.fillRect(100, 50, 10, 10);
+    ctx.fillRect(30, 70, 80, 6);
+
+    //Tegne en runding
+    ctx.arc(300, 100, 70, 0,1 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+
+    //tegne streker
+    //flytter pennen
+    ctx.moveTo(300, 200,);
+    ctx.lineTo(100, 200);
+    ctx.strokeStyle = "pink";
+    ctx.stroke();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loop som lager div-elementer</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    div {
+      border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+
+    let x = 1;
+    let antall = prompt("Hvor mange div-elementer har du lyst på?")
+
+    while(x < antall) {
+        let firkant = document.createElement("div");
+        document.body.appendChild(firkant);
+        firkant.style.height = x / 2 + "px";
+        x++;
+    }
+
+  </script>
+
+</body>
+</html>

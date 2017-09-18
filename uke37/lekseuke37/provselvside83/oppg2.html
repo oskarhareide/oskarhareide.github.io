@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppg 2</title>
+</head>
+<body>
+
+    <script>
+      let tall = Math.ceil(Math.random()*6);
+
+      if (tall == 1){
+        document.body.innerHTML += `Buhu! DU fikk tallet ${tall} <br />
+          <img src="terning1.jpg" alt="" />
+        `;
+      }else if (tall == 2) {
+        document.body.innerHTML += `Litt bedre, nå fikk du tallet ${tall}. <br/>
+        <img src="terning2.jpg" alt="" />
+        `;
+      }else if (tall == 3) {
+        document.body.innerHTML += `Nå er du nesten halvveis, nå fikk du tallet ${tall} <br />
+          <img src="Terning3.jpg" alt="" />
+        `;
+      }else if (tall == 4) {
+        document.body.innerHTML += `Nå er du over halvveis, du fikk tallet ${tall} <br />
+          <img src="terning4.jpg" alt="" />
+        `;
+      }else if (tall == 5) {
+        document.body.innerHTML += `Nå er du nesten i mål, du fikk tallet ${tall} <br />
+          <img src="Terning5.jpg" alt="" />
+        `;
+      }
+      else if (tall == 6) {
+        document.body.innerHTML += `Gratulerer! Du fikk tallet ${tall} <br />
+          <img src="Terning6.jpg" alt="" />
+        `;
+      };
+    </script>
+
+</body>
+</html>

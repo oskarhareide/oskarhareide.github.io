@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hvilken farge er det?</title>
+  <style>
+    body{
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 1s;
+    }
+    section {
+      font-family: sans-serif;
+      color: white;
+      text-shadow: 0 0 2px black;
+    }
+  </style>
+</head>
+<body>
+
+    <section>
+      <h1 id="visTid">00:00:00</h1>
+      <h2 id="visFarge">#000000</h2>
+    </section>
+
+
+    <script>
+
+      let visTid = document.getElementById("visTid");
+      let visFarge = document.getElementById("visFarge");
+
+      function settFarge() {
+
+          let tid = new Date(); //Hva klokken er akkurat nå.
+          var hh = tid.getHours();
+          var mm = tid.getMinutes();
+          var ss = tid.getSeconds();
+
+          if (hh < 10) {
+            hh = "0"+ hh;
+          }
+          if (mm < 10) {
+            mm = "0"+mm;
+          }
+          if (ss < 10) {
+            ss = "0" + ss;
+          }
+
+          let fargekode = `#${hh}${mm}${ss}`;
+          visFarge.innerHTML = fargekode;
+          document.body.style.backgroundColor = fargekode;
+          visTid.innerHTML = `${hh}:${mm}:${ss}`;
+      };
+      setInterval(settFarge, 1000);
+    </script>
+</body>
+</html>

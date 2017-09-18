@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tekst</title>
+</head>
+<body>
+
+  <script>
+    let svar = prompt("Hei skriv inn det hemmelige passordet her");
+
+    let tekst1 = "Hei, dette er en tekst som vises om du kan det hemmelige passordet";
+    let tekst2 = "Du kan ikke det hemmelige passordet";
+
+    if(svar.toUpperCase() === "VÆRSÅSNILLVISMEGTEKSTENDA") {
+      document.write(tekst1);
+    }
+    else if (svar !== '') {
+      document.write(tekst2);
+    }
+
+    let svar2 = prompt("Hva er ordet regninger baklengs?");
+    let fasit = "regninger"
+
+    let quiztekst1 = "NÆMMEN du svarte riktig jo!";
+    let quiztekst2 = "Du svarte feil....";
+
+    if (svar2 === fasit){
+      document.write(quiztekst1);
+      document.body.innerHTML += '<img src="pokal.jpg" alt="" />';
+    }
+    else {
+      document.write(quiztekst2);
+    }
+
+  </script>
+
+</body>
+</html>

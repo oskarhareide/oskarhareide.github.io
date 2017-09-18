@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Provselv60</title>
+  <style>
+    #sirkel, #bmi, #karakterkalkulator {
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <script id="rektangel">
+    let høyde = 5;
+    let bredde = 10;
+
+    /*Under har jeg da regnet ut både omkrets og areal av rektangelet*/
+    let areal = høyde*bredde; //dette er utregningen av areal
+    let omkrets = 2*(høyde + bredde); // dette er utregningen av omkrets
+
+
+    document.write(`Arealet av rektangelet er ${areal} m<sup>2</sup>`);
+    document.write(`<br />`)
+    document.write(`Omkretsen av rektangelet er ${omkrets} m`);
+  </script>
+
+  <script id="randomtall">
+    document.write(Math.floor(Math.random()*6)+1);
+    document.write(`<br/>`);
+    document.write(Math.floor(Math.random()*10));
+    document.write("<br />")
+    document.write("<br />")
+    document.write(Math.floor(Math.random()*(20-10)+10));
+  </script>
+
+
+  <div id="sirkel">
+    <h1>Sirkel</h1>
+  <script type="text/javascript">
+    let r = prompt("Skriv inn radius til sirkelen her:)");
+
+    let omkretssirkel = 2*Math.PI*r;
+    let volumsirkel = (4*Math.PI*Math.pow(r,3))/3;
+    let arealsirkel = 4*Math.pow(r,2)*Math.PI;
+
+    document.write("O = " + omkretssirkel.toFixed(2) +" M" + "<br />"+ "V = " + volumsirkel.toFixed(2) + " L" + "<br/>"+ "A = " + arealsirkel.toFixed(2) + " M<sup>2</sup>"); //dette helvete er måten jeg lister opp de forskjellige svarene til verdiene til sirkelen.
+    /*kommentar jeg blir nødt til å legge inn for å øve*/
+  </script>
+  </div>
+
+<div id="karakterkalkulator">
+  <h1>Karakteren din</h1>
+  <script>
+    let antpoeng = prompt("Hvor mange poeng fikk du?");
+    let antmulpoeng = prompt("Hvor mange spørsmål hadde testen?");
+
+    let karakter = (antpoeng/antmulpoeng)*6;
+
+    document.write("Gratulerer du har oppnådd karakteren " + Math.round(karakter));
+  </script>
+</div>
+
+<div id="bmi">
+  <h1>Din bmi</h1>
+  <script type="text/javascript">
+    let vekt = prompt("Ikke for å være frekk, men jeg er nødt til å spørre om vekten din");
+    let kroppshøyde = prompt("Må nok spørre om høyden din også");
+
+    let bmi = (vekt/Math.pow(kroppshøyde,2));
+
+    document.write(`Din kroppsmasseindex er ${bmi.toFixed(2)}`);
+  </script>
+</div>
+
+</body>
+</html>

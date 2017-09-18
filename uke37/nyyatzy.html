@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ny Yatzy</title>
+</head>
+<body>
+  <p></p>
+
+  <script>
+
+    let s = Math.pow(6, 4);
+    document.body.innerHTML = "<h1>" + s + "</h1>";
+
+    let antallKast = 0;
+
+    function sjekkYatzy(){
+
+      antallKast++;
+      let t1 = Math.ceil(Math.random() * 6);
+      let t2 = Math.ceil(Math.random() * 6);
+      let t3 = Math.ceil(Math.random() * 6);
+      let t4 = Math.ceil(Math.random() * 6);
+      let t5 = Math.ceil(Math.random() * 6);
+
+      if(t1 === t2 && t2 === t3 && t3 === t4 && t4 === t5) {
+        document.body.innerHTML += "<p>DU FIKK YATZY PÅ " + antallKast + "kast</p>";
+        antallKast = 0;
+      }
+      else {
+      }
+
+    }
+    setInterval(sjekkYatzy, 1)
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppgave 3</title>
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dette er prisen av ditt abonnement denne måneden</h1>
+  <script>
+    let datamengde = prompt("Hvor mye data har du brukt denne måneden?");
+    let antSamtaler = prompt("Hvor mange samtaler har du hatt?");
+    let ringetid = prompt("Hvor mye ringetid har du brukt?");
+    let antSMS = prompt("Hvor mange smser har du sendt?");
+    let antMMS = prompt("Hvor mange MMS har du sendt");
+
+    let pris = datamengde * 10 + antSamtaler * 0.89 + ringetid * 0.39 + antSMS * 0.69 + antMMS * 1.99;
+
+    document.write(pris.toFixed(2) + "kr");
+  </script>
+
+</body>
+</html>
