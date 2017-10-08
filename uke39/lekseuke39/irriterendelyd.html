@@ -12,7 +12,6 @@
     }
     #canvas {
       background-color: black;
-      margin: 0;
     }
   </style>
 </head>
@@ -32,12 +31,12 @@
       for(let x=1; x<1000; x+=2) {
         ctx.beginPath();
         ctx.strokeStyle = `hsl(${Math.random()*360},100%, 50%)`;
-        ctx.arc(innerWidth/2, innerHeight/2, x, 0, Math.PI*2);
+        ctx.rect(Math.random()*innerWidth - 100, Math.random()*innerHeight - 100, Math.random()*(innerWidth/2), Math.random()*(innerHeight/2));
         ctx.stroke();
         ctx.closePath();
       }
     }
-    setInterval(tegnSirkler, 1);
+    setInterval(tegnSirkler, 75);
     let ac = new AudioContext();
 
     for(let x=0; x<1000; x++) {
