@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rovdyr</title>
+</head>
+<body>
+
+  <script>
+    let rovdyr = prompt("Skriv inn rovdyret du har lyst til å vite mer informasjon").toLowerCase().trim();
+
+    let antall
+    switch (rovdyr) {
+      case "ulv":
+      case "ulf":
+        document.write("Det er bare 33 ulver i Norge");
+        break;
+      case "jerv":
+      case "djerv":
+        document.write("Det er 343 jerv i Norge.");
+        break;
+      case "bjørn":
+        document.write("Det er 137 bjørner i Norge.");
+        break;
+      case "gaupe":
+        document.write("Det er 350 gauper i Norge.");
+        break;
+      default:
+      document.write("Har dessverre ingen verdier for det.");
+}
+
+  </script>
+
+</body>
+</html>

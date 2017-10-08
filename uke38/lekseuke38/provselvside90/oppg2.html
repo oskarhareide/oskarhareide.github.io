@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vanrette streker</title>
+  <style>
+    body{
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="minCanvas" width="300" height="300"></canvas>
+  <script>
+    let canvas = document.getElementById("minCanvas");
+    let ctx = canvas.getContext("2d");
+
+    canvas.height = innerHeight;
+    canvas.width = innerWidth;
+
+    let i = 0;
+    let length = innerWidth;
+
+    while(i<innerHeight) {
+      ctx.beginPath();
+      ctx.rect(0, i, length, 1);
+      ctx.fill();
+      ctx.closePath();
+      i = i + 10;
+    }
+
+
+  </script>
+
+</body>
+</html>

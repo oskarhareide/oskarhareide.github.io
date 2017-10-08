@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Den store gangetabellen</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    for(let i=1; i<=10; i++){
+      for(let j=1; j<=10; j++) {
+        let div = document.createElement("div");
+        document.body.appendChild(div);
+        div.innerHTML = `${i} x ${j} = ${i*j}`;
+      }
+    }
+  </script>
+
+</body>
+</html>

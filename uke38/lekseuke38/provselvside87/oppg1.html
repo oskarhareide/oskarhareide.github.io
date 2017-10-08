@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppg 1</title>
+</head>
+<body>
+
+    <script>
+      let mobil = prompt("Hvilket selskap har laget mobilen din?").toLowerCase().trim();
+
+      switch (mobil) {
+        case "apple":
+        case "iphone":
+          document.write("Apple var stiftet av Steve Jobs. Tror jeg.");
+          document.body.style.backgroundColor = "lightblue";
+          document.body.style.color = "white";
+          break;
+        case "samsung":
+        case "galaxy":
+          document.write("Samsung er et veldig stort selskap som har en privat hær.");
+          document.body.style.backgroundColor = "black";
+          document.body.style.color = "white";
+          break;
+        case "sony":
+        case "xperia":
+          document.write("Sony lager også veldig bra kameraer");
+          document.body.style.backgroundColor = "red";
+          document.body.style.color = "white";
+          break;
+        case "microsoft":
+        case "windows":
+          document.write("Dette er ikke veldig populære mobiltelefoner");
+          document.body.style.backgroundColor = "orange";
+          document.body.style.color = "white";
+          break;
+        default:
+          document.write("Beklager, har ikke noen informasjon om din mobil leverandør.");
+      }
+    </script>
+
+</body>
+</html>

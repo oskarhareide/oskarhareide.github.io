@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loop med lyd</title>
+</head>
+<body>
+  <script>
+    let ac = new AudioContext();
+
+    for(let x=0; x<1000; x++) {
+
+      let osc = ac.createOscillator();// lager en Oscilator
+      osc.connect(ac.destination); // Kobler til høyttaler
+      osc.frequency.value = Math.random()*1000;
+      osc.start(x / 100); //Starter lyd
+      osc.stop(x / 100 + 0.01);  //Stopper lyd
+    }
+
+
+
+  </script>
+</body>
+</html>

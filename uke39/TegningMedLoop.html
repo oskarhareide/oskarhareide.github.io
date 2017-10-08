@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tegning med loop</title>
+  <style>
+    body {
+      margin: 0;
+
+    }
+    #canvas {
+      background-color: orangered;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas width="200" height="200" id="canvas"></canvas>
+
+
+  <script type="text/javascript">
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    for(let x=0; x<100; x+=5) {
+      ctx.beginPath();
+      ctx.rect(x,x,x,x);
+      ctx.stroke();
+      ctx.closePath();
+    }
+  </script>
+</body>
+</html>

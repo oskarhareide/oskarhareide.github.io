@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tegning med loop</title>
+  <style>
+    body {
+      margin: 0;
+
+    }
+    #canvas {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas width="200" height="200" id="canvas"></canvas>
+
+
+  <script type="text/javascript">
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    function tegnSirkler() {
+      for(let x=1; x<1000; x+=2) {
+        ctx.beginPath();
+        ctx.strokeStyle = `hsl(${Math.random()*360},100%, 50%)`;
+        ctx.arc(innerWidth/2, innerHeight/2, x, 0, Math.PI*2);
+        ctx.stroke();
+        ctx.closePath();
+      }
+    }
+    setInterval(tegnSirkler, 1);
+    let ac = new AudioContext();
+
+    for(let x=0; x<1000; x++) {
+
+      let osc = ac.createOscillator();// lager en Oscilator
+      osc.connect(ac.destination); // Kobler til høyttaler
+      osc.frequency.value = Math.random()*1000;
+      osc.start(x / 100); //Starter lyd
+      osc.stop(x / 100 + 0.01);  //Stopper lyd
+    }
+
+  </script>
+</body>
+</html>

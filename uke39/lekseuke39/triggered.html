@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Triggered</title>
+</head>
+<body>
+  <script>
+    let bilde = prompt("Skriv inn hvilket bilde du har lyst på.").toLowerCase();
+    let ethan = "ethan.jpg";
+    let ting = "ting.jpg"
+
+
+
+  switch (bilde) {
+    case "ethan":
+      document.body.innerHTML += `<img src="${ethan}" alt="whoops funket ikke. " />`;
+      break;
+    case "ting":
+      document.body.innerHTML += `<img src="${ting}" alt="whoops funket ikke. " />`;
+      break;
+    default:
+      document.body.innerHTML += `<div>Dette funket visst ikke, prøv igjen med et annet navn.</div>`
+
+  }
+  </script>
+</body>
+</html>

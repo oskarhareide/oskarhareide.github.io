@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Billettkalkulator</title>
+</head>
+<body>
+  <script>
+    let billett = prompt("Hva slags billett skal du ha? Barnebillett, voksenbillet eller seniorbillett?").toLowerCase().trim();
+
+    switch (billett) {
+      case "barnebillett":
+      case "barn":
+        document.write("Som barn vil din billett koste 17kr.");
+        break;
+      case "voksen":
+      case "voksenbillett":
+      case "myndig":
+        document.write("Som voksen vil din billett koste 25kr.");
+        break;
+      case "senior":
+      case "pensjonist":
+        document.write("Som senior vil din billett koste 17kr.");
+        break;
+      default:
+        document.write("Du skrev nok dessverre inn feil verdi");
+</body>
+</html>
