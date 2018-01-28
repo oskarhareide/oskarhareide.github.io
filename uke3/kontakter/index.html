@@ -35,7 +35,7 @@
   </style>
 </head>
 <body>
-  <form action="" id="skjema">
+  <form id="frmKontakter">
     <div>
       <input type="text" id="inpFornavn" placeholder="Fornavn">
     </div>
@@ -51,11 +51,15 @@
 
   <table>
     <thead>
-      <th>Etternavn</th>
-      <th>Fornavn</th>
-      <th>Telefonnummer</th>
+      <tr>
+        <th>Navn</th>
+        <th>Telefon</th>
+        <th>Slett</th>
+      </tr>
     </thead>
-    <tbody id="boks"></tbody>
+    <tbody id="tbodyKontakter"></tbody>
   </table>
+  <script src="js/kontakter.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

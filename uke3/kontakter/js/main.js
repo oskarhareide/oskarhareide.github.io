@@ -4,9 +4,10 @@ let inpFornavn = document.getElementById("inpFornavn");
 let inpEtternavn = document.getElementById("inpEtternavn");
 let inpTelefon = document.getElementById("inpTelefon");
 let kontakter = new Map();//definerer en tom map
+
 function oppdaterTabell(){
   tbodyKontakter.innerHTML = ""; // Nuller ut innholdet i kontaktlisten
-  for(let kontakt of kontakter){
+  for(let kontakt of kontakter.values()){
     tbodyKontakter.innerHTML += kontakt.tabellrad; //Får en tabellrad fra get-metoden
   }
   let kontakterSomArray = Array.from(kontakter.values());//Gjør om map til array
@@ -25,7 +26,7 @@ frmKontakter.onsubmit = function(evt){
   kontakter.set(telefon, nyKontakt); //telefon er key nyKontakt er value
   oppdaterTabell(); //Oppdater tabellen
   inpFornavn.value = inpEtternavn.value = inpTelefon.value =""; //Nuller ut input-feltene
-  inpFonravn.focus(); //setter fokus i input-feltet inpFornavn
+  inpFornavn.focus(); //setter fokus i input-feltet inpFornavn
 };
 //sjekker om det er lagret noe i localStorage
 if(localStorage.mineKontakter){
