@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Areal</title>
+</head>
+<body>
+  <script>
+    let winp = prompt("Hva er bredden på rektangelet?");
+    let hinp = prompt("Hva er høyden på rektangelet?");
+
+    function areal(w,h){
+      document.body.innerHTML += `<p>areal = w * h</p>`;
+      document.body.innerHTML += `<p>areal = ${w} * ${h} = ${w * h}</p>`;
+    }
+
+    areal(winp, hinp);
+  </script>
+</body>
+</html>

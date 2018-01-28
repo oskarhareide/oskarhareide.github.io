@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript-bandet</title>
+  <style>
+    body {
+      background-color: peachpuff;
+    }
+    main {
+      display: grid;
+      max-width: 800px;
+      margin: auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      align-items: end;
+    }
+    main > img {
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <audio src="trommer.mp3" id="lydTrommer" autoplay loop></audio>
+  <audio src="bass.mp3" id="lydBass" autoplay loop></audio>
+  <audio src="orgel.mp3" id="lydOrgel" autoplay loop></audio>
+  <audio src="gitar.mp3" id="lydGitar" autoplay loop></audio>
+
+  <main>
+    <img src="trommer_blek.png" id="imgTrommer" alt="Funket ikke">
+    <img src="bass_blek.png" id="imgBass" alt="Funket ikke">
+    <img src="orgel_blek.png" id="imgOrgel" alt="Funket ikke">
+    <img src="gitar_blek.png" id="imgGitar" alt="Funket ikke">
+  </main>
+
+  <script>
+    const lydTrommer = document.getElementById("lydTrommer");
+    const lyBass = document.getElementById("lydBass");
+    const lydOrgel = document.getElementById("lydOrgel");
+    const lydGitar = document.getElementById("lydGitar");
+
+    const imgTrommer = document.getElementById("imgTrommer");
+    const imgBass = document.getElementById("imgBass");
+    const imgOrgel = document.getElementById("imgOrgel");
+    const imgGitar = document.getElementById("imgGitar");
+
+    lydTrommer.volume = 0;
+    lydBass.volume = 0;
+    lydOrgel.volume = 0;
+    lydGitar.volume = 0;
+
+    //synkronisere lydene
+    lydGitar.currentTime = lydTrommer.currentTime;
+    lydOrgel.currentTime = lydTrommer.currentTime;
+    lydBass.currentTime = lydTrommer.currentTime;
+
+    imgTrommer.onclick = function(){
+      if(lydTrommer.volume === 0){
+        lydTrommer.volume = 1;
+        imgTrommer.src = "trommer_sort.png";
+      } else {
+        lydTrommer.volume = 0;
+        imgTrommer.src = "trommer_blek.png";
+      }
+    }
+
+    imgBass.onclick = function(){
+      if(lydBass.volume === 0){
+        lydBass.volume = 1;
+        imgBass.src = "bass_sort.png";
+      } else {
+        lydBass.volume = 0;
+        imgBass.src = "bass_blek.png";
+      }
+    }
+
+    imgBass.onclick = function(){
+      if(lydBass.volume === 0){
+        lydBass.volume = 1;
+        imgBass.src = "bass_sort.png";
+      } else {
+        lydBass.volume = 0;
+        imgBass.src = "bass_blek.png";
+      }
+    }
+
+    imgOrgel.onclick = function(){
+      if(lydOrgel.volume === 0){
+        lydOrgel.volume = 1;
+        imgOrgel.src = "orgel_sort.png";
+      } else {
+        lydOrgel.volume = 0;
+        imgOrgel.src = "orgel_blek.png";
+      }
+    }
+
+    imgGitar.onclick = function(){
+      if(lydGitar.volume === 0){
+        lydGitar.volume = 1;
+        imgGitar.src = "gitar_sort.png";
+      } else {
+        lydGitar.volume = 0;
+        imgGitar.src = "gitar_blek.png";
+      }
+    }
+
+  </script>
+
+</body>
+</html>

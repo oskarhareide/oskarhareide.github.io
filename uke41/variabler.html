@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Variabler i og utenfor funksjoner</title>
+</head>
+<body>
+
+  <script>
+    //Global variabel
+    let poeng = 0;
+
+    function giPoeng(){
+      //Gir et poeng
+      poeng++;
+    }
+    function taPoeng(){
+      //tar ett poeng
+      poeng--;
+    }
+    giPoeng();
+    giPoeng();
+    giPoeng();
+    giPoeng();
+    taPoeng();
+
+    document.write("DU HAR NÅ " + poeng + " POENG!");
+
+    function finnTilFeldig() {
+      //Dette er en lokal variabel.
+      let tall = Math.random();
+      document.write(" " + tall);
+    }
+    finnTilFeldig();
+  </script>
+
+</body>
+</html>

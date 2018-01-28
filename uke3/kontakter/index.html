@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="foundation.css">
+  <title>Mine kontakter</title>
+  <style>
+    body{
+      padding: 8px;
+      max-width:700px;
+      margin: auto;
+    }
+    #skjema{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 4px;
+    }
+    #skjema > button {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+    @media  (max-width: 480px){
+      #skjema{
+        grid-template-columns: 1fr;
+      }
+      #skjema > button {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <form action="" id="skjema">
+    <div>
+      <input type="text" id="inpFornavn" placeholder="Fornavn">
+    </div>
+    <div>
+      <input type="text" id="inpEtternavn" placeholder="Etternavn">
+    </div>
+    <div>
+      <input type="text" id="inpTelefon" placeholder="Telefon">
+    </div>
+
+    <button type="submit" class="button">Registrer kontakt</button>
+  </form>
+
+  <table>
+    <thead>
+      <th>Etternavn</th>
+      <th>Fornavn</th>
+      <th>Telefonnummer</th>
+    </thead>
+    <tbody id="boks"></tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ting</title>
+</head>
+<body>
+
+  <table>
+    <tbody id="tb"></tbody>
+  </table>
+
+  <script>
+    let tb = document.getElementById("tb")
+    class Avis {
+      constructor(navn, land, url){
+        this.navn = navn;
+        this.url = url;
+        this.land = land;
+      }
+
+      get linken(){
+        return `<a href="${this.url}">Les avisen</a>`
+      }
+
+      get rad(){
+        return `
+          <tr>
+              <td>${this.navn}</td>
+              <td>${this.land}</td>
+              <td>${this.linken}</td>
+          </tr>
+        `;
+      }
+    };
+
+    let ap = new Avis("Aftenposten", "Norge", "http://www.aftenposten.no");
+    let vg = new Avis("VG", "Norge", "http://www.vg.no");
+    let db = new Avis("Dagbladet", "Norge","http://www.db.no");
+
+    tb.innerHTML += ap.rad;
+    tb.innerHTML += vg.rad;
+    tb.innerHTML += db.rad;
+  </script>
+</body>
+</html>

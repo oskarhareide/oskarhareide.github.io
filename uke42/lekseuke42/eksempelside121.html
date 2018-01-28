@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Side121</title>
+  <style>
+    #sirkel {
+      width: 50px;
+      height: 50px;
+      margin: 20px auto;
+      border-style: solid;
+      border-width: 5px;
+      border-radius: 50%;
+      transition: 1s;
+    }
+    body {
+      background-color: forestgreen;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Endre diameteren på sirkelen</button>
+  <div id="sirkel"></div>
+
+  <script>
+    let btn = document.getElementById("btn");
+    let sirkel = document.getElementById("sirkel");
+    sirkel.onclick = function (){
+      let radius = Math.random()*600;
+      sirkel.style.width = radius + "px";
+      sirkel.style.height = radius + "px";
+    }
+  </script>
+</body>
+</html>

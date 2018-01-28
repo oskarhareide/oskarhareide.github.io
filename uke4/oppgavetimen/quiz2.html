@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz</title>
+</head>
+<body>
+  <div id="boks">
+    <h1 id="txtQuestion">Laster innhold...</h1>
+    <button id="btn1">...</button>
+    <button id="btn2">...</button>
+    <button id="btn3">...</button>
+  </div>
+  <script>
+    const txtQuestion = document.getElementById("txtQuestion");
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+    const btn3 = document.getElementById("btn3");
+    const boks = document.getElementById("boks");
+
+    let nr = 0;
+    let brukersvar = [];
+    let poeng = 0;
+    const questions = [
+      {
+        tekst: "Hvem er raskest?",
+        svarene: [
+          "supermann",
+          "lynvingen",
+          "hulken"
+        ],
+        fasit: 0
+      },
+      {
+        tekst: "Hvem er lurest?",
+        svarene: [
+          "erna",
+          "jonas",
+          "siv"
+        ],
+        fasit: 2
+      },
+      {
+        tekst: "Hvem er best?",
+        svarene: [
+          "Messi",
+          "Bale",
+          "Ronaldo"
+        ],
+        fasit: 0
+      },
+      {
+        tekst: "Hva er kvadratroten av 9?",
+        svarene: [
+          "3",
+          "9",
+          "Dette burde man vite"
+        ],
+        fasit: 2
+      },
+      {
+        tekst: "Hva fikk du til jul i år?",
+        svarene: [
+          "DET HAR IKKE VÆRT JUL I ÅR",
+          "Iphone",
+          "kjærlighet"
+        ],
+        fasit: 0
+      },
+      {
+        tekst: "Har du svart på dette spørsmålet?",
+        svarene: [
+          "nei",
+          "ja",
+          "kanskje"
+        ],
+        fasit: 0
+      }
+    ];
+
+    function lagOppgave(){
+      const q = questions[nr];
+      txtQuestion.innerText = q.tekst;
+      btn1.innerText = q.svarene[0];
+      btn2.innerText = q.svarene[1];
+      btn3.innerText = q.svarene[2];
+    };
+
+    function sjekkspm(evt) {
+      const q = questions[nr];
+
+      console.log(evt.target, q.fasit);
+      if(evt.target === btn1 && q.fasit === 0) {
+        poeng++;
+      } else if (evt.target === btn2 && q.fasit === 1) {
+        poeng++;
+      } else if (evt.target === btn3 && q.fasit === 2) {
+        poeng++;
+      }
+
+      if(nr == questions.length-1){
+        visPoeng();
+        return;
+      }
+
+      nr++;
+      lagOppgave();
+    }
+
+    function visPoeng(){
+      boks.innerHTML = `Du fikk ${poeng} av ${questions.length}`
+    };
+
+    lagOppgave();
+
+    btn1.onclick = sjekkspm;
+    btn2.onclick = sjekkspm;
+    btn3.onclick = sjekkspm;
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>To do</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+</head>
+<style>
+  body{
+    max-width: 600px;
+    padding: 10px;
+    margin: auto;
+  }
+</style>
+<body>
+  <form id="skjema">
+    <input type="text" id="inpTodo" required placeholder="What to do today?">
+  </form>
+
+  <section id="listeMedTodos">
+
+  </section>
+
+  <script>
+    let skjema = document.getElementById("skjema");
+    let listeMedTodos = document.getElementById("listeMedTodos");
+    let inpTodo = document.getElementById("inpTodo");
+
+    let todos = [
+      {task: "vaske gulvet", done: false},
+      {task: "Gå ut med søppel", done: true}
+    ];
+
+    function visTodos(){
+      listeMedTodos.innerHTML = "";
+      for(let todo of todos){
+        listeMedTodos.innerHTML += `
+          <div>
+            <input type="checkbox"/>
+            <label>${todo.task}</label>
+          </div>
+        `;
+      }
+    }
+
+    function nyTodo(evt){
+      evt.preventDefault();
+      //starter nyTodo
+      console.log("nyTodo");
+      todos.push({task: inpTodo.value , done: false});
+      visTodos();
+    }
+    skjema.onsubmit = nyTodo;
+    visTodos();
+  </script>
+</body>
+</html>

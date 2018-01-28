@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sette i gang funksjoner</title>
+</head>
+<body>
+  <div id="info"></div>
+  <script>
+    let info = document.getElementById("info")
+    let teller = 0;
+
+    function klikk(evt) {
+      console.log(evt);
+      teller++;
+      info.innerHTML = teller;
+    }
+
+    document.onclick = klikk;
+
+  </script>
+</body>
+</html>

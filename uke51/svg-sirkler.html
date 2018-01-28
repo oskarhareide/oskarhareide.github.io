@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG-sirkler</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    #mySVG {
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+    }
+    circle {
+      r: 50;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+  <svg id="mySVG">
+  </svg>
+
+  <script>
+    let mySVG = document.getElementById("mySVG");
+
+    function tegnSirkel(klikk) {
+      let x = klikk.clientX;
+      let y = klikk.clientY;
+      let sirkel = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+
+      sirkel.setAttribute("cx", x);
+      sirkel.setAttribute("cy", y);
+
+      mySVG.appendChild(sirkel);
+
+      let keyframes = [
+        {r: 0},
+        {r: 50}
+      ];
+      let settings = {
+        duration: 1000,
+        fill: 'forwards'
+      };
+      let animasjon = sirkel.animate(keyframes, settings);
+
+      animasjon.onfinish = function() {
+        mySVG.removeChild(sirkel);
+      }
+    }
+
+    mySVG.onmousemove = tegnSirkel;
+  </script>
+</body>
+</html>

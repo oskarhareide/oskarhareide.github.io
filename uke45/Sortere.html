@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sortere</title>
+</head>
+<body>
+
+  <script>
+
+    let tallene = [3, 233, 43, 12, 54, 67, 0, -23, 43];
+
+    //sorterer stigende
+    tallene.sort(function(a,b){
+      return a - b;
+    });
+
+    //Sortere synkende
+    tallene.sort(function(a,b){
+      return b - a;
+    });
+
+    console.log(tallene);
+  </script>
+
+</body>
+</html>

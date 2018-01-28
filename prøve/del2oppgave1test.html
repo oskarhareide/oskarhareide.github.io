@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stjerner</title>
+  <style>
+    body {
+      background-color: black;
+      width: 100%;
+      height: 100vh;
+    }
+    .stjerne {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: white;
+      transition: 2s;
+    }
+    #knappene {
+      width: 100%;
+      position: absolute;
+      bottom: 20px;
+      margin: auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <span id="knappene">
+    <button onclick="hvit()">Trykk her for hvite lamper</button>
+    <button onclick="rosa()">Trykk her for rosa lamper</button>
+  </span>
+
+  <script>
+    let x = 0;
+
+    while (x < 100) {
+      let stjerne = document.createElement("div");
+      stjerne.className = "stjerne";
+      stjerne.style.left = Math.random() * innerWidth + "px";
+      stjerne.style.top = Math.random() * innerHeight + "px";
+
+
+      document.body.appendChild(stjerne); // Legger inni body
+      x++;
+    }
+
+    function scramble() {
+      let stjerner = document.getElementsByClassName("stjerne");
+      for(var stjerne of stjerner) {
+        stjerne.style.width
+                  = stjerne.style.height
+        stjerne.style.left = Math.random() * innerWidth + "px";
+        stjerne.style.top = Math.random() * innerHeight + "px";
+      }
+    };
+
+    function hvit(){
+      document.body.div.style.backroundColor = "white";
+    }
+    function rosa(){
+      body.div.style.backgroundColor = "black";
+    }
+
+    setInterval(scramble, 2000);
+  </script>
+
+</body>
+</html>

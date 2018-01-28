@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Overskrift endre</title>
+  <style>
+    body{
+      text-align: center;
+    }
+    #overskrift {
+      transition: 3s;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="overskrift">Jeg har planer om å endre denne overskriften</h1>
+  <script>
+    let overskrift = document.getElementById("overskrift");
+
+    overskrift.onmouseover = function(){
+      if(overskrift.style.transform === `scale(3)`){
+        overskrift.style.transform = 'scale(1)';
+      }else{
+        overskrift.style.transform = `scale(3)`;
+      }
+    };
+  </script>
+</body>
+</html>

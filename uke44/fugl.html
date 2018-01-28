@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fugl</title>
+  <style>
+    #fugl {
+      width: 60px;
+      height: 60px;
+      background-color: #2ac845;
+      position: absolute;
+      left: 50px;
+      top: 50px;
+    }
+    body {
+      height: 100vh;
+      background-image: url("bakgrunn.png");
+      background-repeat: repeat-x;
+      background-position: bottom;
+    }
+    #bullet {
+      height: 50px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="fugl"></div>
+  <img id="bullet" src="bullettbill.png" alt="Uff, dette funket ikke">
+  <script>
+    let fugl = document.getElementById("fugl");
+    let yfart = 1;
+    let ypos = 50;
+    let xpos = innerWidth/8;
+    let g = 0.1;
+
+    let kule = document.getElementById("bullet");
+    let kulex = innerWidth + 100;
+    let kuley = Math.random() * ((innerHeight-150)-0);
+    let kulefart = -4;
+
+    let bgpos = 0;
+    let bgfart = -5;
+
+    function bevegGress(){
+      bgpos = bgpos + bgfart;
+      document.body.style.backgroundPosition = bgpos + "px bottom";
+    }
+
+    function bevegKule(){
+      kulex = kulex + kulefart;
+      kule.style.left = kulex + "px";
+      kule.style.top = kuley + "px";
+    }
+
+    function fallNedover() {
+      yfart = yfart + g;
+      ypos = ypos + yfart;
+      fugl.style.top = ypos + "px";
+      fugl.style.left = xpos + "px";
+    }
+
+    function loop(){
+      fallNedover();
+      bevegGress();
+      bevegKule();
+
+      if (intersectRect(fugl.getBoundingClientRect(), kule.getBoundingClientRect())) {
+        g = 0;
+        console.log('DÆVvvVVVv');
+      }
+
+      if(ypos > innerHeight -30 || ypos < -30) {
+        g = 0;
+      } else {
+        requestAnimationFrame(loop);
+      }
+    }
+
+    function fly(){
+      yfart= -4;
+    }
+
+    function intersectRect(r1, r2) {
+      return !(r2.left > r1.right ||
+               r2.right < r1.left ||
+               r2.top > r1.bottom ||
+               r2.bottom < r1.top);
+    }
+
+    document.onclick = fly;
+
+    loop();
+  </script>
+
+</body>
+</html>

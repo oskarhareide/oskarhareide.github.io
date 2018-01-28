@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Keyboard</title>
+</head>
+<body>
+  <div id="keyboard"></div>
+
+  <script src="qwerty-hancock.min.js"></script>
+  <script>
+
+
+    let keyboard = new QwertyHancock({
+                 id: 'keyboard',
+                 width: 600,
+                 height: 150,
+                 octaves: 2,
+                 startNote: 'A3',
+                 whiteNotesColour: 'white',
+                 blackNotesColour: 'black',
+                 hoverColour: '#f3e939'
+            });
+    let toner = new Map();
+    let ac = new AudioContext();
+
+    keyboard.keyDown = function (note, frequency) {
+        let osc = ac.createOscillator();
+        osc.connect(ac.destination);
+        osc.frequency.value = frequency;
+        osc.start(ac.currentTime);
+        toner.set(note,osc);
+
+    };
+
+    keyboard.keyUp = function (note, frequency) {
+        let osc = toner.get(note);
+        toner.delete(osc);
+        //skru av lyden
+        //og fjern noten fra map
+        osc.stop(ac.currentTime);
+    };
+  </script>
+
+</body>
+</html>

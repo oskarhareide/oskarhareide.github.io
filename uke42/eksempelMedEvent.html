@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event</title>
+</head>
+<body>
+  <button id="btnPizza">klikk her</button>
+  <button id="btnTaco">Klikk her</button>
+  <script>
+    let btnPizza = document.getElementById("btnPizza");
+    let btnTaco = document.getElementById("btnTaco");
+
+    function visValgtRett(evt) {
+      let knapp = evt.target;
+      let knappeID = knapp.id;
+      if(knappeID === "btnTaco"){
+        alert("Jippi! Det blir Taco!")
+      } else {
+        alert("Det ble pizza.")
+      };
+    }
+    btnPizza.onclick =  visValgtRett;
+    btnTaco.onclick = visValgtRett;
+  </script>
+</body>
+</html>

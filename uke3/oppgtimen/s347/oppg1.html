@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="foundation.css">
+  <title>Land</title>
+</head>
+<body>
+  <script>
+    class Land{
+      constructor(navn, areal, folketall){
+        this.navn = navn;
+        this.areal = areal;
+        this.folketall = folketall;
+      }
+      get getnavn(){
+        return this.navn;
+      }
+      get getareal(){
+        return this.areal;
+      }
+      get getfolketall(){
+        return this.folketall;
+      }
+      get all(){
+        return `<table>
+                  <thead>
+                    <tr>
+                      <th>Navn</th>
+                      <th>Areal</th>
+                      <th>Folktetall</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>${this.navn}</td>
+                      <td>${this.areal}</td>
+                      <td>${this.folketall}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />`
+      }
+      get innbyggerePerKvadratmeter(){
+        return this.areal/this.folketall;
+      }
+    }
+    let sverige = new Land("Sverige",100000, 10000000);
+    let norge = new Land("Norge", 300000, 5500000);
+    let ingenMannsLand = new Land("Ingenmannsland", 100000, 0);
+    let usa = new Land("United States of America", 1000000,320000000);
+
+    document.write(sverige.all);
+    document.write(norge.all);
+    document.write(ingenMannsLand.all);
+    document.write(usa.all);
+    document.write(sverige.innbyggerePerKvadratmeter);
+
+  </script>
+</body>
+</html>

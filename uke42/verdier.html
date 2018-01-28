@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data-atributter</title>
+</head>
+<body>
+  <button id="btnKatt" data-tekst="Katten er et selvstendig dyr." type="button" name="button"></button>
+  <button id="btnHund" data-tekst="Hunden er glad i kjøttbein" type="button" name="button"></button>
+  <button id="btnSlange" data-tekst="Slangen spiser gnagere." type="button" name="button"></button>
+
+  <div id="info"></div>
+  <script>
+    let info = document.getElementsByClassName("info")
+
+    let btnKatt = document.getElementById("btnKatt");
+    let btnHund = document.getElementById("btnHund");
+    let btnSlange = document.getElementById("btnSlange");
+
+    function visInfo(){
+      //I en funksjon er 'this' en betegnelse på det som har satt i gang funksjonen
+      //I dette tilfellet knappen som ble klikket på
+      let tekst = knapp.getAttribute("data-tekst");
+      info.innerHTML = tekst;
+
+    }
+
+    btnKatt.onclick = visInfo;
+    btnHund.onclick = visInfo;
+    btnSlang.onclick = visInfo;
+
+  </script>
+</body>
+</html>

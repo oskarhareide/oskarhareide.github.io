@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Filmregister</title>
+</head>
+<body>
+  <table>
+    <tbody id="tblFilmer"></tbody>
+  </table>
+
+  <iframe id="filmVisning" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+
+  <script>
+    let tblFilmer = document.getElementById("tblFilmer");
+    let filmVisning = document.getElementById("filmVisning");
+
+    let filmer = new Map();
+    filmer.set("tt0052618",{tittel: "Ben Hur", trailer:"https://youtube.com/embed/6rjYXEYpuDo"});
+    filmer.set("tt0054331",{tittel: "Spartacus Hur", trailer:"https://youtube.com/embed/6rjYXEYpuDo"});
+    filmer.set("tt0013442",{tittel: "Nosferatu", trailer:"https://youtube.com/embed/TJG4aEtKeUw"});
+    filmer.set("tt0069293",{tittel: "Solaris", trailer:"https://youtube.com/embed/6rjYXEYpuDo"});
+
+    function slett(id) {
+      filmer.delete(id);
+      visFilmer();
+    }
+    function visTrailer(id){
+      let film = filmer.get(id);
+      filmVisning.src = film.trailer;
+    }
+
+    function visFilmer () {
+      tblFilmer.innerHTML = "";
+      for(let [key,film] of filmer) {
+        tblFilmer.innerHTML += `
+          <tr>
+            <td>${film.tittel}</td>
+            <td>
+              <button onclick="slett('${key}')">X</button>
+            </td>
+            <td>
+              <button onclick="visTrailer('${key}')">Vis </button>
+            </td>
+          </tr>
+        `;
+      }
+    }
+    visFilmer();
+  </script>
+</body>
+</html>

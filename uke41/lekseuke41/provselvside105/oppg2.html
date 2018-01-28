@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function nyKontakt(fornavn,etternavn,telefon){
+      document.body.innerHTML += `<h2>Kontakt</h2>`;
+      document.body.innerHTML += `<p>Fornavn: ${fornavn}</p>`;
+      document.body.innerHTML += `<p>Etternavn: ${etternavn}</p>`;
+      document.body.innerHTML += `<p>Telefonnummer: ${telefon}</p> <br />`;
+    }
+    nyKontakt("Oskar","Hareide",900);
+    nyKontakt("Oskar","Hareide",90000000);
+    nyKontakt("Oskar","Hareide",90000000);
+    nyKontakt("Oskar","Hareide",90000000);
+    nyKontakt("Oskar","Hareide",90000000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppg2</title>
+  <style>
+    html{
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      height: 100%;
+      widows: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!--lager et p-element som skal endres senere.-->
+  <p id="p">blablabla, dette skal endres</p>
+  <script type="text/javascript">
+    //la variabelen p være document sitt element-med-id(p)
+    let p = document.getElementById("p");
+
+    //funksjon med navnet endre
+    function endre() {
+      //document sin body sin style sin backgroundColor skal være brun
+      document.body.style.backgroundColor = "brown";
+      //p-element sitt indre innhold(innerHTML) skal være string
+      p.innerHTML = `Dette er bare for å vise at du endret html-en inne i paragraf-elementet`;
+    }
+    //når man trykker på body aktiverer man funksjonen endre. 
+    document.body.onclick = endre;
+  </script>
+
+</body>
+</html>

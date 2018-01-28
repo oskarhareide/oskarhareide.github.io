@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Arv</title>
+</head>
+<body>
+  <script>
+    class Bil{
+      constructor(merke, modell, bensinmotor){
+        this.merke = merke;
+        this.modell = modell;
+        this.bensinmotor = bensinmotor;
+      }
+      get motoreffekt(){
+        return this.bensinmotor;
+      }
+    }
+    class Hybridbil extends Bil {
+      constructor(merke, modell, bensinmotor, elmotor){
+        super(merke, modell, bensinmotor);
+        this.elmotor = elmotor;
+      }
+      get motoreffekt(){
+        return this.bensinmotor + this.elmotor;
+      }
+    }
+
+    //Lager et objekt av klassen Bil
+    let opel = new Bil("Opel","Ascona", 120)
+    let prius = new Hybridbil("Toyota","Prius", 80, 50);
+
+    alert(prius.motoreffekt);
+
+
+
+  </script>
+</body>
+</html>

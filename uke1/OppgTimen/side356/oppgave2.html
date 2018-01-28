@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppgave 2</title>
+  <link rel="stylesheet" href="foundation.css">
+  <style>
+    #destinasjon {
+      width: 60%;
+      margin: auto;
+    }
+    #diagramdiv {
+      display: flex;
+      margin: auto;
+      margin-top: 30px;
+      width: 80%;
+      flex-direction: row;
+
+      justify-content: space-around;
+      align-items: flex-end;
+      background-color: lightgrey;
+    }
+    #diagramdiv .graf {
+      background-color: blue;
+      display: flex;
+      width: 50px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-end;
+      margin: auto;
+      margin-top: 20px;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="tabelldiv">
+    <table id="destinasjon">
+      <thead>
+        <th>Godteri</th>
+        <th>Hvor mye sukker</th>
+      </thead>
+    </table>
+  </div>
+  <div id="diagramdiv"></div>
+
+  <script>
+    let tabelldiv = document.getElementById("tabelldiv");
+    let destinasjon = document.getElementById("destinasjon");
+    let diagramdiv = document.getElementById("diagramdiv");
+
+    class Godteri{
+      constructor(navn, sukker){
+        this.navn = navn;
+        this.sukker = sukker;
+      }
+      get rad(){
+        return `
+          <td>${this.navn}</td>
+          <td>${this.sukker}</td>
+        `;
+      }
+      get soyle(){
+        return`<div>
+                  <div class="graf" style="height: ${this.sukker}px">${this.sukker}</div>
+                  <div>${this.navn}</div>
+              </div>`
+      }
+    }
+
+    let sjokolade = new Godteri("Melkesjokolade", 100);
+    let drops = new Godteri("Kamferdrops",200);
+    let lakris = new Godteri("Salte sild", 50);
+    let bolle = new Godteri("sjokoladebolle", 90);
+
+    destinasjon.innerHTML += sjokolade.rad;
+    destinasjon.innerHTML += drops.rad;
+    destinasjon.innerHTML += lakris.rad;
+    destinasjon.innerHTML += bolle.rad;
+
+    diagramdiv.innerHTML += sjokolade.soyle;
+    diagramdiv.innerHTML += drops.soyle;
+    diagramdiv.innerHTML += lakris.soyle;
+    diagramdiv.innerHTML += bolle.soyle;
+
+
+  </script>
+</body>
+</html>

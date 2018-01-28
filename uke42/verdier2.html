@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data-atributter</title>
+</head>
+<body>
+  <div id="alleKnappene">
+    <button id="btnKatt" data-tekst="Katten er et selvstendig dyr." type="button" name="button">Katt</button>
+    <button id="btnHund" data-tekst="Hunden er glad i kjøttbein" type="button" name="button">Hund</button>
+    <button id="btnSlange" data-tekst="Slangen spiser gnagere." type="button" name="button">Slange</button>
+    <button id="btnMus" data-tekst="Jeg er en liten mus." type="button" name="button">Mus</button>
+    <button id="btnApe" data-tekst="Jeg er en ape" type="button" name="button">Ape</button>
+  </div>
+
+  <div id="info"></div>
+  <script>
+    let info = document.getElementById("info");
+
+    let knapper = document.querySelectorAll("#alleKnappene button");
+
+    function visInfo() {
+      info.innerHTML = this.getAttribute("data-tekst");
+    }
+
+    for(let knapp of knapper) {
+      knapp.onclick = visInfo;
+    }
+  </script>
+</body>
+</html>

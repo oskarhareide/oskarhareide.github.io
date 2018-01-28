@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hvordan virker map?</title>
+</head>
+<body>
+  <script>
+    let dyreregister = new Map();
+
+    dyreregister.set("001","per Ku");
+    dyreregister.set("002","Åse gås");
+    dyreregister.set("003","Børre rev");
+
+    dyreregister.set("004","Platypus");
+    dyreregister.set("004","Nebbdyr");
+
+    console.log(dyreregister.size);
+    console.log(dyreregister);
+
+    //slette elementer med delete(id)
+
+    dyreregister.delete(004);
+
+    //sjekke om et element med en bestemt id finnes
+    console.log(dyreregister.has("001"));
+
+
+  </script>
+</body>
+</html>

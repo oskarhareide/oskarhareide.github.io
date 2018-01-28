@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>by</title>
+  <style>
+    #soyler div{
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <article id="soyler"></article>
+
+  <script>
+  let soyler = document.getElementById("soyler");
+    class By {
+      constructor(navn,innbyggere) {
+        this.navn = navn;
+        this.innbyggere = innbyggere;
+      }
+      get soyle() {
+        return `<div
+                  style="width: ${this.innbyggere / 2000}px">
+                  ${this.navn}
+                </div>`
+      }
+    }
+
+    let oslo = new By("Oslo", 942084);
+    let stockholm = new By("Stockholm", 1372565);
+    let helsingfors = new By("helsingfors", 1176976);
+
+    soyler.innerHTML += oslo.soyle;
+    soyler.innerHTML += stockholm.soyle;
+    soyler.innerHTML += helsingfors.soyle;
+
+  </script>
+</body>
+</html>

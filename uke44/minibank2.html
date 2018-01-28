@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Minibank 2</title>
+</head>
+<body>
+  <h1>Minibanken</h1>
+  <form id="skjema" action="">
+    <input id="inpBelop" type="text" required type="number">
+    <input type="radio" name="rbTransaksjon" id="rbUttak" required>
+    <label for="rbUttak">Ta ut penger</label>
+
+    <input type="radio" name="rbTransaksjon" id="rbInnskudd" required>
+    <label for="rbInnskudd">Sette inn penger</label>
+
+    <button type="submit">Utfør transaksjonen</button>
+  </form>
+
+  <div id="info"></div>
+
+  <script>
+    let saldo = 5000;
+
+      var skjema = document.getElementById("skjema");
+      var rbUttak = document.getElementById("rbUttak");
+      var rbInnskudd = document.getElementById("rbInnskudd");
+      var inpBelop = document.getElementById("inpBelop");
+      var info = document.getElementById("info");
+
+    function visSaldo() {
+      info.innerHTML = "Saldo er: " + saldo.toFixed(2) + "kr";
+    }
+
+    function taUtPenger(belop){
+      if(saldo >= belop) {
+        saldo = saldo - belop;
+        visSaldo();
+      } else {
+        info.innerHTML = "Du har ikke nok penger!"  + "<br/>";
+        info.innerHTML += "Saldo er: " + saldo + "kr";
+      }
+    }
+
+    function settInnPenger(belop) {
+      saldo = saldo + belop;
+      // saldo += belop;
+      visSaldo();
+    }
+
+    function transaksjon(evt){
+      evt.preventDefault();
+      let belop = Number(inpBelop.value);
+      if(rbUttak.checked) {
+        taUtPenger(belop);
+      } else {
+        settInnPenger(belop);
+      }
+    }
+
+    skjema.onsubmit = transaksjon;
+
+  </script>
+</body>
+</html>

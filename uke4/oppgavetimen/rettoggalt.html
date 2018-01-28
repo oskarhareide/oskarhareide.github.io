@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../foundation.css">
+  <title>RettEllerGalt</title>
+  <style>
+    #button{
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Skriv inn din favoritt artist</h1>
+
+  <input type="text" id="felt">
+  <button id="button" class="button">Start sang</button>
+  <button id="stopp" class="button">STOPP</button>
+
+  <audio src="../bass.mp3" id="bass">Din nettleser støtter ikke audio-elementer</audio>
+  <audio src="../orgel.mp3" id="orgel">Din nettleser støtter ikke audio-elementer</audio>
+
+  <script>
+    const felt = document.getElementById("felt");
+    const button = document.getElementById("button");
+    const stopp = document.getElementById("stopp");
+
+    const bass = document.getElementById("bass");
+    const orgel = document.getElementById("orgel");
+
+  function balle(){
+    orgel.pause();
+    bass.pause();
+    if(felt.value == "kygo"){
+      bass.play();
+    } else {
+      orgel.play();
+    }
+  }
+  function stoppLyd (){
+    bass.pause();
+    orgel.pause();
+  }
+
+  button.onclick = balle;
+  stopp.onclick = stoppLyd;
+  </script>
+</body>
+</html>

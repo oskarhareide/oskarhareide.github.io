@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 50vw;
+      margin: auto;
+      margin-top: 10vh;
+    }
+    #skjema {
+      width: 80%;
+      position: absolute;
+      top: 80px;
+
+    }
+
+
+    #submit {
+      margin: auto;
+    }
+    #tittel {
+      margin: 100px 0 10px 0;
+    }
+    table {
+      width: 100%;
+    }
+    #fagliste {}
+
+    .klokkeslett {
+      font-style: oblique ;
+      margin: auto;
+    }
+    body td {
+      width: 21%;
+    }
+    #overskrift td {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div>På dagkode hører de forskjellige dagene til et tall 1-5. Mandag = 1, Tirsdag = 2 osv.</div>
+  <form id="skjema">
+    <input type="number" id="dagkode" required placeholder="Dagkoden 1-5">
+    <input type="text" id="dag" required placeholder="Dag">
+    <input type="text" id="fag" required placeholder="Fag">
+    <input type="text" id="klokkeslett" required placeholder="Klokkeslett">
+    <input type="text" id="lærer" required placeholder="Lærer">
+    <button id="submit">Legg inn fag</button>
+  </form>
+
+  <h1 id="tittel">Timeplan</h1>
+
+  <div id="fagSamler">
+    <table>
+      <thead>
+        <tr id="overskrift">
+          <td>Dag</td>
+          <td>Fag</td>
+          <td>Klokkeslett</td>
+          <td>Lærer</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody id="fagliste"></tbody>
+    </table>
+  </div>
+
+  <button oninput="sorterfag()"></button>
+  <script>
+    let fagSamler = document.getElementById('fagSamler');
+    let dag = document.getElementById("dag");
+    let enavn = document.getElementById("enavn");
+    let klokkeslett = document.getElementById("klokkeslett");
+    let lærer = document.getElementById("lærer");
+    let fagliste = document.getElementById("fagliste");
+    let fagene = [
+      {dagkode:1, dag:"Mandag",fag: "IT2", klokkeslett: "08.30 - 13.35", lærer: "Gløer"},
+      {dagkode:2, dag:"Tirsdag", fag: "Norsk", klokkeslett: "08.30 - evig", lærer: "Vet ikke helt"}
+    ];
+    let viserSkjema = false;
+
+    function slett(i) {
+        fagene.splice(i, 1);
+        visFag();
+    }
+
+    function visFag(){
+      fagliste.innerHTML = "";
+      for(let [indeks,fag] of fagene.entries()) {
+        fagliste.innerHTML += `
+        <div class="fagdiv">
+          <tr>
+            <td>${fag.dag}</td>
+            <td>${fag.fag}</td>
+            <td class="klokkeslett">${fag.klokkeslett}</td>
+            <td>${fag.lærer}</td>
+            <td><button onclick="slett(${indeks})">X</button></td>
+          </tr>
+        </div>
+        `;
+      }
+    }
+
+
+    function leggTilFag(evt) {
+      evt.preventDefault();
+      if (!dagkode.value || !dag.value || !fag.value || !klokkeslett.value || !lærer.value) {
+        return;
+      }
+
+      fagene.push({
+        dagkode: dagkode.value,
+        dag: dag.value,
+        fag: fag.value,
+        klokkeslett: klokkeslett.value,
+        lærer: lærer.value
+      });
+      dag.value = "";
+      fag.value = "";
+      klokkeslett.value = "";
+      lærer.value = "";
+      visFag();
+    }
+
+    fagene.sort(function(1-5){
+      return 1.
+    });
+
+    visFag();
+    skjema.onsubmit = leggTilFag;
+  </script>
+</body>
+</html>

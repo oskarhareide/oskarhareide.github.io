@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Poeng</title>
+</head>
+<body>
+  <script>
+    let poengsum = 0;
+
+    function leggTilPoeng() {
+      poengsum = poengsum + 5;
+    }
+
+    function trekkFraPoeng() {
+      poengsum = poengsum - 5;
+    }
+    leggTilPoeng();
+    leggTilPoeng();
+    trekkFraPoeng();
+    document.write("Poengsummen er " + poengsum);
+  </script>
+</body>
+</html>

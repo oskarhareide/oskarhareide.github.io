@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+  <style>
+    body {
+
+      width: 50vw;
+      margin: auto;
+      margin-top: 10vh;
+    }
+    #skjema {
+      position: absolute;
+      z-index: -1;
+    }
+    #kontaktSamler {
+      min-height: 250px;
+      background-color: #ffffff;
+      transition: transform 400ms;
+    }
+    #submit {
+      margin: auto;
+    }
+    #tittel {
+      margin: 20px 0 10px 0;
+    }
+
+    .mobil {
+      font-weight: bold;
+      margin: auto;
+    }
+    #toggleskjema (
+      x
+      )
+  </style>
+</head>
+<body>
+  <button id="toggleskjema" class="button">Legg til kontakt</button>
+  <form id="skjema">
+    <input type="text" id="fnavn" required placeholder="Skriv inn fornavn">
+    <input type="text" id="enavn" required placeholder="Skriv inn etternavn">
+    <input type="number" id="tlfnummer" required placeholder="Skriv inn mobilnummer">
+
+    <button class="button" id="submit">Submit informasjonen til kontakten din her</button>
+  </form>
+
+  <div id="kontaktSamler">
+    <h2 id="tittel">Kontakter</h1>
+    <table>
+      <thead>
+        <tr>
+          <td>Fornavn</td>
+          <td>Etternavn</td>
+          <td>Tlf</td>
+        </tr>
+      </thead>
+      <tbody id="kontaktliste"></tbody>
+    </table>
+  </div>
+
+  <script>
+    let kontaktSamler = document.getElementById('kontaktSamler');
+    let fnavn = document.getElementById("fnavn");
+    let enavn = document.getElementById("enavn");
+    let tlfnummer = document.getElementById("tlfnummer");
+    let kontaktliste = document.getElementById("kontaktliste");
+    let kontakter = [
+      {fornavn: "Karl Oskar", etternavn: "Hareide", tlf:95494848},
+      {fornavn:"Knugen", etternavn: "Svensk", tlf:12345678}
+    ];
+    let viserSkjema = false;
+
+    function visKontakt(){
+      kontaktliste.innerHTML = "";
+      for(let kontakt of kontakter) {
+        kontaktliste.innerHTML += `
+          <tr class="kontaktdiv">
+            <td>${kontakt.fornavn}</td>
+            <td>${kontakt.etternavn}</td>
+            <td class="mobil">${kontakt.tlf}</td>
+          </tr>
+        `;
+      }
+    }
+    function leggTilKontakt(evt) {
+      evt.preventDefault();
+      if (!fnavn.value || !enavn.value || !tlfnummer.value) {
+        return;
+      }
+
+      kontakter.push({
+        fornavn: fnavn.value,
+        etternavn: enavn.value,
+        tlf: tlfnummer.value
+      });
+      fnavn.value = "";
+      enavn.value = "";
+      tlfnummer.value = "";
+      visKontakt();
+    }
+
+    function toggleSkjema() {
+      viserSkjema = !viserSkjema;
+      let translatePx = viserSkjema ? '250px' : '0px';
+      kontaktSamler.style.transform = `translateY(${translatePx})`;
+    }
+    visKontakt();
+    skjema.onsubmit = leggTilKontakt;
+  </script>
+</body>
+</html>

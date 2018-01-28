@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gjette vekten</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    #vektstang {
+      width: 300px;
+      height: 40px;
+      background-color: firebrick;
+      transition: 1s;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="inpVekt">
+  <button id="button" onclick="gjettVekt()">Gjett vekten</button>
+  <div id="vektstang"></div>
+
+  <script>
+    let inpVekt = document.getElementById("inpVekt");
+    let vektstang = document.getElementById("vektstang");
+
+    function gjettVekt() {
+      let vekt = Number(inpVekt.value);
+      if(vekt > 10){
+        vektstang.style.transform = "rotate(20deg)";
+      } else if(vekt < 10){
+        vektstang.style.transform = "rotate(-20deg)";
+      }else {
+        vektstang.style.transform = "rotate(10000deg)"
+      }
+    }
+
+  </script>
+</body>
+</html>

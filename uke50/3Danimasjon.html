@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WAAPI</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: red;
+    }
+
+    #che {
+      transform: perspective(200px) rotateY(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <img id="che" src="che.png" alt="">
+
+  <script>
+    let che = document.getElementById("che");
+
+    let keyframes = [
+      {transform: "perspective(10px) rotateY(-20deg)"},
+      {transform: "perspective(800px) rotateY(0)"},
+      {transform: "perspective(10px) rotateY(20deg)"}
+    ];
+
+    let settings = {
+      duration: 4000
+    };
+    let animation = che.animate(keyframes, settings);
+    animation.pause();
+    animation.currentTime = 2500;
+
+    document.onmousemove = function(evt){
+      let x = evt.clientX;
+      animation.currentTime = evt.clientX * 6000 / innerWidth;
+    };
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Eksempel side 355</title>
+</head>
+<body>
+  <div id="divFlaggene"></div>
+  <h1 id="txtSvar"></h1>
+  <script>
+    let divFlaggene = document.getElementById("divFlaggene");
+    let txtSvar = document.getElementById("txtSvar");
+    class Land{
+      constructor(bildefil, navn){
+        this.bildefil = bildefil;
+        this.navn = navn;
+      }
+      get klikkbartBilde(){
+        return `<img src="${this.bildefil}" onclick="visLand('${this.navn}')"/>`
+      }
+    };
+    function visLand(navn){
+      txtSvar.innerHTML = navn;
+    }
+    let finland = new Land("finland.png","Finland");
+    let hellas = new Land("hellas.png","Hellas");
+    let irland = new Land("irland.png","Irland");
+    divFlaggene.innerHTML += finland.klikkbartBilde;
+    divFlaggene.innerHTML += hellas.klikkbartBilde;
+    divFlaggene.innerHTML += irland.klikkbartBilde;
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oppg4</title>
+  <style>
+    body {
+      background-color: white;
+    }
+    div {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+    let tekst = prompt("Hvilken tekst har du lyst til å vise?")
+    function lagDiv (tekst, bredde, bakgrunnsfarge, tekstfarge) {
+      document.body.innerHTML += `<div id="divskit">${tekst}</div>`;
+      let divskit = document.getElementById("divskit");
+      divskit.style.color = tekstfarge;
+      divskit.style.backgroundColor = bakgrunnsfarge;
+      divskit.style.width = bredde;
+    }
+
+    lagDiv(tekst, "100%", "blue", "white");
+
+  </script>
+</body>
+</html>

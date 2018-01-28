@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Filmer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+  <style>
+  #nyfilm {
+    width: 80vw;
+    margin: auto;
+  }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="nyfilm" required placeholder="Legg til en film her?">
+
+  <ul id="filmliste"></ul>
+
+  <script>
+    let inpfilm = document.getElementById("nyfilm");
+    let filmliste = document.getElementById("filmliste");
+    let filmer = ["The Expendables", "Sharknado"];
+
+    function visFilmer(){
+      filmliste.innerHTML = "";
+      for(let film of filmes){
+        filmliste.innerHTML += `
+          <div>
+            <input type="checkbox"/>
+            <label>${film.task}</label>
+          </div>
+        `;
+      }
+    }
+
+    function nyFilm(evt){
+      evt.preventDefault();
+      //starter nyTodo
+      console.log("nyFilm");
+      filmliste.push({inpfilm});
+      visTodos();
+    }
+    inpfilm.onsubmit = nyFilm;
+
+
+  </script>
+</body>
+</html>

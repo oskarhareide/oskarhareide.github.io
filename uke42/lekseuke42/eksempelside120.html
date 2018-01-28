@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Legge inn bilde</title>
+</head>
+<body>
+  <button id="btnVisBilde">Vis bilde</button>
+  <div id="info"><!--Her kommer bildet av katten--></div>
+
+  <script>
+    let btnVisBilde = document.getElementById("btnVisBilde");//referanse til knappen
+
+    let info = document.getElementById("info");//referanse til div-elementet
+
+    btnVisBilde.onclick = function(){//Hendelsesstyrt funksjon
+      info.innerHTML += '<img src="katt.jpg" alt="uffameg" />'//legger inn et img-element i diven
+    }
+
+
+  </script>
+</body>
+</html>

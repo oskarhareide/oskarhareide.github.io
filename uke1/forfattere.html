@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Objektorienterte Forfattere</title>
+</head>
+<body>
+  <script>
+    class Forfatter {
+      constructor(fornavn, etternavn, fodselsaar){
+        this.fornavn = fornavn;
+        this.etternavn = etternavn;
+        this.fodselsaar = fodselsaar;
+      }
+    }
+
+    let blixen = new Forfatter("karen", "Blixen", 1885);
+    let hamsun = new Forfatter("Knut", "Hamsun",1859);
+
+    console.log(blixen.fornavn); //Hente ut informasjon
+
+    hamsun.fodselsaar = 1860; //Endre informasjon
+
+    console.log(hamsun.fodselsaar);
+  </script>
+</body>
+</html>

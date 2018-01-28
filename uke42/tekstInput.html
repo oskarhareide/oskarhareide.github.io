@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Input</title>
+</head>
+<body>
+  <input type="text" id="inpTekst" name="" value="">
+  <span id="utTekst"></span>
+
+  <script>
+    let inTekst = document.getElementById("inpTekst");
+    let utTekst = document.getElementById("utTekst");
+
+    function visTekst(){
+      utTekst.innerHTML = inpTekst.value;
+    }
+
+    inpTekst.oninput = visTekst;
+  </script>
+
+</body>
+</html>

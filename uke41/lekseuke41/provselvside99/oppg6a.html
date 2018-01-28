@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas-element</title>
+</head>
+<body>
+  <canvas id="canvas" width="300" height="300"></canvas>
+  <script>
+    let x = innerWidth/2;
+    let y = innerHeight/2;
+
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    function sirkel(){
+      ctx.beginPath();
+      ctx.arc(x, y, 50, 0, 2*Math.PI);
+      ctx.strokeStyle = "purple";
+      ctx.stroke();
+      ctx.closePath();
+    }
+    function flyttX() {
+      x = x+ 20;
+    }
+    function flyttY() {
+      y = y + 20;
+    }
+    sirkel();
+    flyttY();
+    sirkel();
+    flyttX();
+    sirkel();
+
+  </script>
+</body>
+</html>

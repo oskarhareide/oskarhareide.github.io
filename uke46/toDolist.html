@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todo list</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+  <style>
+    body {
+      max-width: 600px;
+      padding: 10px;
+      margin: auto;
+    }
+    #divTodos > div {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-gap: 5px;
+    }
+  </style>
+</head>
+<body>
+  <form id="skjema">
+    <input type="text" id="inpTodo" required placeholder="Skriv inn ny oppgave.">
+  </form>
+  <div id="divTodos">
+
+  </div>
+  <div>
+    <button onclick="visTodos()" class="success button">Vis alle</button>
+    <button onclick="visFerdigeTodos()" class="success button">Vis Ferdige</button>
+    <button onclick="visUferdigeTodos()" class="success button">Vis Uferdige</button>
+    <button class="button alert" onclick="slettMarkerte()">Slett ferdige</button>
+  </div>
+
+  <script>
+    let skjema = document.getElementById("skjema");
+    let inpTodo = document.getElementById("inpTodo");
+    let divTodos = document.getElementById("divTodos");
+
+    let todos = [
+      {beskrivelse: "Vaske gulvet", done:false},
+      {beskrivelse: "Trene", done: false},
+      {beskrivelse: "Kjøpe prim", done: true},
+      {beskrivelse: "Gjøre IT-lekse", done: true},
+      {beskrivelse: "Lade Macen", done: true}
+    ];
+
+
+    function slettMarkerte() {
+        console.log("slettMarkerte");
+        var umarkerte = [];
+        for(var todo of todos) {
+            if(!todo.done) {
+                umarkerte.push(todo);
+            }
+        }
+        // Bytter ut arrayet
+        todos = umarkerte;
+        visTodos();
+    }
+    function nyTodo(evt) {
+        evt.preventDefault();
+        var todo = {
+          beskrivelse: inpTodo.value,
+          done: false
+        };
+        todos.push(todo);
+        visTodos();
+        inpTodo.value = "";
+    }
+    function slett(i) {
+        todos.splice(i, 1);
+        visTodos();
+    }
+    function marker(i) {
+        var todo = todos[i];
+        var rad = document.querySelector(`#divTodos > div:nth-child(${i + 1})`);
+        var cb = rad.querySelector("input[type=checkbox]");
+        console.log(cb);
+        if(cb.checked) {
+            todo.done = true;
+        } else {
+            todo.done = false;
+        }
+        visTodos();
+    }
+    function visTodos() {
+        divTodos.innerHTML = "";
+        for( var [indeks, todo] of todos.entries() ) {
+                var stil = "text-decoration: none";
+                var sjekket = "";
+                if(todo.done) {
+                    stil = "text-decoration: line-through";
+                    sjekket = "checked";
+                }
+                divTodos.innerHTML += `
+                <div>
+                    <input type="checkbox" ${sjekket} onchange="marker(${indeks})">
+                    <span style="${stil}">${todo.beskrivelse}</span>
+                    <button onclick="slett(${indeks})" class="tiny button">X</button>
+                </div>
+            `;
+        }
+    }
+
+    function visUferdigeTodos() {
+      divTodos.innerHTML = "";
+      for(let todo of todos) {
+        if(!todo.done) {
+          divTodos.innerHTML += `
+            <div>
+              <input type="checkbox"/>
+              <span>${todo.beskrivelse}</span>
+              <button class="tiny button">X</button>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function visFerdigeTodos() {
+      divTodos.innerHTML = "";
+      for(let todo of todos) {
+        if(todo.done) {
+          divTodos.innerHTML += `
+            <div>
+              <input type="checkbox"/>
+              <span>${todo.beskrivelse}</span>
+              <button class="tiny button">X</button>
+            </div>
+          `;
+        }
+      }
+    }
+    function nyTodo(evt){
+      evt.preventDefault();
+
+      let todo = {
+        beskrivelse: inpTodo.value,
+        done:false
+      };
+      //bruke .unshift om du vil ha objektet på starten av listen.
+      todos.push(todo);
+      visTodos();
+      inpTodo.value = "";
+    }
+
+    skjema.onsubmit = nyTodo;
+    visTodos();
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Farge og rotasjon</title>
+  <style>
+    body {
+      transition: 1s;
+    }
+  </style>
+</head>
+<body>
+  <input id="inpRotasjon" type="range" min="0" max="360" value="360">
+  <input type="color" id="inpFarge" list="farger"/>
+  <datalist id="farger">
+    <option value="pink"></option>
+    <option value="green"></option>
+    <option value="grey"></option>
+    <option value="#ff0000"></option>
+  </datalist>
+
+  <script>
+    let inpRotasjon = document.getElementById("inpRotasjon");
+    let inpFarge = document.getElementById("inpFarge");
+
+    inpFarge.oninput = function() {
+    document.body.style.backgroundColor = inpFarge.value;
+    }
+    inpRotasjon.oninput = function (){
+      inpFarge.style.transform = `rotate(${inpRotasjon.value}deg)`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>En funksjon kan returnere html kode</title>
+</head>
+<body>
+
+  <ul id="handleliste"></ul>
+
+  <script>
+    let handleliste = document.getElementById("handleliste");
+      //funksjonen tar navnet på en vare og gir meg HTML kode for et listepunkt
+    function lagListepunkt(vare) {
+      let li = `<li>${vare}</li>`;
+      return li;
+    }
+
+    handleliste.innerHTML += lagListepunkt("Sitron");
+    handleliste.innerHTML += lagListepunkt("Appelsin");
+    handleliste.innerHTML += lagListepunkt("Suppe");
+  </script>
+
+</body>
+</html>

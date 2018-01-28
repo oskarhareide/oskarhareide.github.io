@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Eksempel side 355</title>
+</head>
+<style>
+  #soyler div {
+    margin-top: 10px;
+    background-color: green;
+  }
+</style>
+<body>
+  <table>
+    <tbody id="tb"></tbody>
+  </table>
+  <h1 id="txtSvar"></h1>
+  <article id="soyler"></article>
+
+  <script>
+    let tb = document.getElementById("tb");
+    let txtSvar = document.getElementById("txtSvar");
+    let soyler = document.getElementById("soyler");
+
+    class Land{
+      constructor(navn, areal, folketall, tetthet){
+        this.navn = navn;
+        this.areal = areal;
+        this.folketall = folketall;
+        this.tetthet = tetthet;
+      }
+      get rad(){
+        return   `<tr>
+                    <td>${this.navn}</td>
+                    <td>${this.areal}</td>
+                    <td>${this.folketall}</td>
+                    <td>${this.tetthet}</td>
+                  </tr>`
+
+      }
+      get soyle(){
+        return`<div style="width: ${this.folketall / 30000}px">
+                ${this.navn}
+                ${this.folketall} folk
+              </div>`
+      }
+    };
+
+    function visLand(navn){
+      txtSvar.innerHTML = navn;
+    }
+    let finland = new Land("Finland",300000, 5600000, 14);
+    let hellas = new Land("Hellas", 100000, 20000000, 150);
+    let irland = new Land("Irland", 60000, 10000000, 90);
+
+    tb.innerHTML += finland.rad;
+
+    soyler.innerHTML += finland.soyle;
+    soyler.innerHTML += hellas.soyle;
+    soyler.innerHTML += irland.soyle;
+  </script>
+</body>
+</html>

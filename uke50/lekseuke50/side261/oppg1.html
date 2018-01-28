@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bakgrunnsfarge</title>
+  <style>
+
+    body{
+      transition: 2s;
+    }
+  </style>
+</head>
+<body>
+  <input id="inpFarge" type="text">
+  <script>
+    let inpFarge = document.getElementById("inpFarge");
+
+    inpFarge.oninput = function(evt) {
+      if (evt.target.value === '') {
+        return;
+      }
+      document.body.style.backgroundColor = `${evt.target.value}`;
+    };
+
+  </script>
+</body>
+</html>

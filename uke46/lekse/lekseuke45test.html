@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Filmoppgave</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+</head>
+<style>
+  body{
+    width: 60vw;
+    margin: auto;
+  }
+  #skjema {
+    width: 60vw;
+    margin:auto;
+  }
+  .button {
+    font-size: 20px;
+  }
+</style>
+<body>
+  <form id="skjema">
+    <input type="text" id="inpFilm" required placeholder="Hvilken film har du lyst til å legge til listen?">
+  </form>
+
+  <ul id="filmListe"></ul>
+
+  <button class="button" id="fjern">Fjern den siste filmen</button>
+  <button class="button" id="sorteralf">Sorter Alfabetisk</button>
+
+  <script>
+    let skjema = document.getElementById("skjema");
+    let filmListe = document.getElementById("filmListe");
+    let inpFilm = document.getElementById("inpFilm");
+
+    let button1 = document.getElementById("fjern");
+    let button2 = document.getElementById("sorteralf");
+
+    let filmer = [
+      "Sharknado",
+      "Shawshank redemption"
+    ];
+
+    function visFilmer(){
+      filmListe.innerHTML = "";
+      for(let film of filmer){
+        filmListe.innerHTML += `
+          <div>
+            <label>${film}</label>
+          </div>
+        `;
+      }
+    }
+
+    function nyFilm(evt){
+      evt.preventDefault();
+      //starter nyTodo
+      console.log("nyFilm");
+      filmer.push(`${inpFilm.value}`);
+      visFilmer();
+      inpFilm.value = "";
+    }
+
+    function slettFilm(){
+      filmer.pop();
+      visFilmer();
+    }
+
+    function sorter(){
+      sort(filmer);
+      visTodos();
+    }
+
+    button1.onclick = slettFilm;
+    button2.onclick = sorter;
+    skjema.onsubmit = nyFilm;
+    visFilmer();
+  </script>
+</body>
+</html>

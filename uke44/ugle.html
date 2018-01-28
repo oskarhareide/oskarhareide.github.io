@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Uglen</title>
+  <style>
+    #ugle {
+      width: 200px;
+      height: 200px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+      <div>
+  <input type="color" id="inpFarge" value="#cccccc">
+  <input type="range" id="inpRotasjon" value="0" min="0" max="360">
+      </div>
+  <div id="ugle"></div>
+
+  <script>
+    let inpFarge = document.getElementById("inpFarge");
+    let inpRotasjon = document.getElementById("inpRotasjon");
+    let ugle = document.getElementById("ugle");
+
+    inpFarge.oninput = function() {
+      ugle.style.backgroundColor = inpFarge.value;
+    }
+
+    inpRotasjon.onchange = function() {
+      ugle.style.transform = `rotate(${inpRotasjon.value}deg)`;
+    };
+
+
+  </script>
+
+</body>
+</html>

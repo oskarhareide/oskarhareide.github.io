@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bildekarussell</title>
+  <style>
+    #ramme {
+      border: 10px solid white;
+      position: absolute;
+      background-image: url("bilde1.jpg");
+      background-size: cover;
+      background-position: center center;
+      width: 1000px;
+      height: 666px;
+      transition: 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="ramme"></div>
+  <script>
+    let ramme = document.getElementById("ramme");
+    let bilder = ["bilde1.jpg","bilde2.jpg","bilde3.jpg","bilde4.jpg","bilde5.jpg","bilde6.jpg", "bilde7.jpg"];
+    //en global variabel holder oversikt over hvilket bilde som vises
+
+    let bildenummer = 0;
+
+    function byttBilde () {
+      ramme.style.backgroundImage = this.src;
+      ramme.style.width = `${this.width}px`;
+      ramme.style.height = `${this.height}px`;
+      ramme.style.left = (innerWidth/2 - this.width/2) + "px";
+      bildenummer++;
+
+      if(bildenummer >= bilder.length){
+        bildenummer = 0;
+      }
+    }
+
+    function visBilde() {
+      let bilde = bilder[bildenummer];
+      let image = new Image();
+      image.src = bilde;
+      image.onload = byttBilde;
+      ramme.style.backgroundImage = `url(${bilde})`;
+      bildenummer++;
+
+      if(bildenummer >= bilder.length) {
+        bildenummer = 0;
+      }
+    }
+    document.onclick = visBilde;
+    visBilde();
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animasjon med JS</title>
+  <style>
+    #sirkel {
+      width: 30px;
+      height: 30px;
+      background-color: black;
+      border-radius: 50%;
+      position: absolute;
+      left: 50px;
+      top: 100px;
+      transition: 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="sirkel"></div>
+  <script>
+    let sirkel = document.getElementById("sirkel");
+
+    document.onclick = function(klikk) {
+      let x = klikk.clientX;
+      let y = klikk.clientY;
+      sirkel.style.left = x + "px";
+      sirkel.style.top = y + "px";
+    }
+  </script>
+</body>
+</html>

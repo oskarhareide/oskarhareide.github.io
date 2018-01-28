@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="foundation.css">
+  <title>Mine transaksjoner</title>
+  <style>
+    .uttak {
+      color: red;
+    }
+    .innskudd {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <form action="" id="skjema">
+    <input id="inpBelop" type="tekst" placeholder="Beløp" required>
+    <input id="inpTekst" type="tekst" placeholder="Beskriv transaksjon" required>
+    <input type="checkbox" id="cbType">
+    <label for="cbType">Innskudd</label>
+    <button type="submit">Utfør transaksjon</button>
+  </form>
+
+  <div>Saldo er
+    <span id="txtSaldo"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Transaksjon</th>
+        <th>Belop</th>
+      </tr>
+    </thead>
+    <tbody id="tb"></tbody>
+  </table>
+
+  <script>
+    const skjema = document.getElementById("skjema");
+    const tb = document.getElementById("tb");
+    const inpBelop = document.getElementById("inpBelop");
+    const inpTekst = document.getElementById("inpTekst");
+    const cbType = document.getElementById("cbType");
+    const txtSaldo = document.getElementById("txtSaldo");
+
+
+    class Transaksjon{
+      constructor(type, belop, tekst){
+        this.type = type;
+        if(type === "uttak"){
+          this.belop = -belop;
+        } else {
+          this.belop = belop;
+        }
+        this.tekst = tekst;
+      }
+      get tabellrad(){
+        return `
+              <tr>
+                <td>${this.tekst}</td>
+                <td class="${this.type}">${this.belop}</td>
+              </tr>
+        `;
+      }
+    }
+    let transaksjoner = [];
+
+    function sjekkSaldo(){
+      let saldo = 0;
+      for(let transaksjon of transaksjoner){
+        saldo += transaksjon.belop;
+      }
+      return saldo;
+    }
+
+
+    function lagTransaksjon(evt){
+      evt.preventDefault();
+
+      let belop = -Number(inpBelop.value);
+      let type = "uttak";
+      if(cbType.checked){
+        type = "innskudd";
+        belop = -belop; // Minus Minus blir pluss
+      }
+      let transaksjon = new Transaksjon(type, belop, inpTekst.value);
+      transaksjoner.push(transaksjon);
+      tb.innerHTML += transaksjon.tabellrad; // Legger inn i tabellen.
+      skjema.reset();
+      txtSaldo.innerHTML = sjekkSaldo();
+    }
+    skjema.onsubmit = lagTransaksjon;
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Slide Show</title>
+  <style>
+    body {
+      background-color: #eee;
+    }
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    #slideshow{
+      width: 500%;
+      display: grid;
+      grid-auto-flow: column;
+
+      transition: 1s;
+    }
+    #slideshow img {
+      width: 100%;
+    }
+
+    #thumbs {
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 5px;
+    }
+    #thumbs img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div id="slideshow">
+      <div><img src="shark01.jpg" alt=""></div>
+      <div><img src="shark02.jpg" alt=""></div>
+      <div><img src="shark03.jpg" alt=""></div>
+      <div><img src="shark04.jpg" alt=""></div>
+      <div><img src="shark05.jpg" alt=""></div>
+    </div>
+
+    <div id="thumbs">
+      <img src="shark01.jpg" alt="" data-marg="0">
+      <img src="shark02.jpg" alt="" data-marg="-100%">
+      <img src="shark03.jpg" alt="" data-marg="-200%">
+      <img src="shark04.jpg" alt="" data-marg="-300%">
+      <img src="shark05.jpg" alt="" data-marg="-400%">
+    </div>
+  </main>
+  <script>
+    let slideshow = document.getElementById("slideshow");
+    let marg = 0;
+
+    function forover() {
+      let keyframes = [
+        {transform: "translateX(15px)"},
+        {transform: "translateX(-5px)"},
+        {transform: "translateX(10px)"},
+        {transform: "translateX(0px)"}
+      ];
+        let settings = {
+        duration: 200
+      };
+      if(marg > -400) {
+        marg -= 100; //minsker margen med 100
+        slideshow.style.marginLeft = marg +"%";
+      } else {
+        slideshow.animate(keyframes, settings);
+
+      }
+    }
+    function bakover() {
+      console.log("BAKOVER");
+      let keyframes = [
+        {transform: "translateX(-15px)"},
+        {transform: "translateX(5px)"},
+        {transform: "translateX(-10px)"},
+        {transform: "translateX(0px)"}
+      ];
+        let settings = {
+        duration: 200
+      };
+      if(marg < 0) {
+        marg += 100; //øker marg med 100
+        slideshow.style.marginLeft = marg + "%";
+      } else {
+        slideshow.animate(keyframes, settings);
+      }
+    }
+
+    slideshow.onclick = function(evt) {
+      let x = evt.clientX; //Hvor langt til høyre
+      if(x > innerWidth/2) {
+        forover();
+      } else {
+        bakover();
+      }
+    }
+
+    function hoppDirekte() {
+      let margen = this.getAttribute("data-marg");
+      marg = Number(margen);
+      slideshow.style.marginLeft = margen;
+    }
+
+    let knapper = document.querySelectorAll("#thumbs img");
+
+    for(var knapp of knapper) {
+      knapp.onclick = hoppDirekte;
+    }
+  </script>
+
+</body>
+</html>

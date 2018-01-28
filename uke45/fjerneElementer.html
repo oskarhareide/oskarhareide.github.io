@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fjerne elementer</title>
+</head>
+<body>
+
+  <script>
+
+    let todos = ["vaske gulvet", "handle", "gå på kino", "spise", "sove"];
+
+    //fjerne det siste gjøremålet
+    todos.pop(todos);
+
+    console.log(todos);
+
+    //Fjerne den første
+    todos.shift();
+    console.log(todos);
+
+    //Fjerne et element på en bestemt plass
+    //Fjerner det å handle i fra arrayen
+    todos.splice(1, 1);
+    console.log(todos);
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Funksjon</title>
+</head>
+<body>
+  <script>
+    let xinp = prompt("Hvilket tall vil du sette inn i funksjonen?");
+    function funksjon(x) {
+      document.body.innerHTML += `<p>f(x)= 3x</p>`;
+      document.body.innerHTML += `<p> Når x er ${x} så er </p>`
+      document.body.innerHTML += `<p>f(${x}) = 3 * ${x} = ${3 * x}</p>`;
+    }
+
+    funksjon(xinp);
+  </script>
+</body>
+</html>

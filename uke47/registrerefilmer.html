@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registrere filmer</title>
+</head>
+<body>
+  <form id="skjema" action="">
+    <input id="inpID" type="text" placeholder="Movie ID">
+    <input id="inpTittel" type="text" placeholder="Tittel">
+    <input id="inpTrailer" type="text" placeholder="URL til trailer">
+    <button type="submit">Registrer film</button>
+  </form>
+
+  <table>
+    <tbody id="tblFilmer"></tbody>
+  </table>
+
+  <script>
+    let skjema = document.getElementById("skjema");
+    let inpID = document.getElementById("inpID");
+    let inpTittel = document.getElementById("inpTittel");
+    let inpTrailer = document.getElementById("inpTrailer");
+    let tblFilmer = document.getElementById("tblFilmer");
+
+    let filmer = new Map();
+
+    function rediger(id) {
+      let film = filmer.get(id);
+      //inpID.value = film.key;
+      inpTittel.value = film.tittel;
+      inpTrailer.value = film.trailer;
+    };
+
+    function visFilmer() {
+      tblFilmer.innerHTML = "";
+      for(let [key,film] of filmer) {
+        tblFilmer.innerHTML += `
+          <tr>
+            <td>${film.titel}</td>
+            <td>${film.trailer}</td>
+            <td>
+              <button onclick="rediger('${key}')">Endre Data</button>
+            </td>
+          </tr>
+        `;
+      }
+    }
+
+    function registrerFilm(evt) {
+      evt.preventDefault();
+      let film = {
+        tittel: inpTittel.value,
+        trailer: inpTrailer.value
+      };
+      filmer.set(inpID.value, film);
+      visFilmer();
+    }
+    skjema.onsubmit = registrerFilm;
+  </script>
+</body>
+</html>

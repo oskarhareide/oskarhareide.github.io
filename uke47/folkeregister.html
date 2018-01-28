@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Folkeregister</title>
+</head>
+<body>
+
+  <input type="text" placeholder="personnummer" id="inpPnr">
+  <div id="info">Skriv inn personnnummer for å søke i folkeregisteret.</div>
+
+  <script>
+    let inpPnr = document.getElementById("inpPnr");
+    let info = document.getElementById("info");
+
+    let kalleKanin = {
+      pnr: "001",
+      navn: "Kalle Kanin",
+      adresse: "Karvesvingen 4"
+    };
+    let tassen = {
+      pnr: "002",
+      navn: "Tassen",
+      adresse: "Kjøttbeinstien 19"
+    };
+    let klausKu = {
+      pnr: "003",
+      navn: "Klaus Ku",
+      adresse: "Kvegfaret 12 b"
+    };
+
+    let innbyggere = new Map();
+    innbyggere.set(kalleKanin.pnr, kalleKanin);
+    innbyggere.set(tassen.pnr, tassen);
+    innbyggere.set(klausKu.pnr, klausKu);
+
+    inpPnr.oninput = function() {
+      if(innbyggere.has(inpPnr.value)) {
+        let dyr = innbyggere.get(inpPnr.value);
+        info.innerHTML = `
+          <h1>${dyr.navn}</h1>
+          <p>${dyr.adresse}</p>
+        `;
+      }else {
+        visAlleDyr();
+      }
+    };
+    function visAlleDyr (){
+      info.innerHTML = "";
+      for(let [key,dyr] of innbyggere) {
+        info.innerHTML += `
+          <h1>${dyr.navn}</h1>
+          <p>${dyr.adresse}</p>
+        `;
+      }
+    }
+    visAlleDyr();
+  </script>
+
+
+</body>
+</html>

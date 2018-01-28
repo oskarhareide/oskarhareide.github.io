@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Minibank</title>
+</head>
+<body>
+  <h1>Minibanken</h1>
+  <input type="number" id="inpBelop">
+  <button onclick="taUtPenger()">Ta ut penger</button>
+  <div id="info"></div>
+
+  <script>
+    //definere en saldo
+    let saldo = 50000;
+    let inpBelop = document.getElementById("inpBelop");
+    let info = document.getElementById("info")
+
+    function visSaldo() {
+      info.innerHTML = "Saldo på konto er: " + saldo.toFixed(2) + "kr";
+    }
+
+    function taUtPenger() {
+      let belop = Number(inpBelop.value);
+      saldo = saldo - belop;
+
+      visSaldo();
+    }
+
+
+  </script>
+</body>
+</html>

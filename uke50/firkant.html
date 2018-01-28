@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animasjon</title>
+  <style>
+
+    @keyframes perspektiv {
+      from{
+        transform: perspective(800px);
+      }
+      to {
+        transform: perspective(300px) rotateY(200deg);
+      }
+    }
+    #firkant {
+      width: 80px;
+      height: 80px;
+      background-color: orange;
+      animation: perspektiv 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="firkant"></div>
+</html>

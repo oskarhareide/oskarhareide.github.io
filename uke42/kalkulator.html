@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kalkulator</title>
+</head>
+<body>
+  <input type="number" id="tall1"> +
+  <input type="number" id="tall2"> =
+  <span id="svar"></span>
+
+  <script type="text/javascript">
+    let tall1 = document.getElementById("tall1");
+    let tall2 = document.getElementById("tall2");
+    let svar = document.getElementById("svar");
+
+    function leggSammen() {
+      let t1 = Number(tall1.value);
+      let t2 = Number(tall2.value);
+      svar.innerHTML = t1 + t2;
+    }
+
+    tall1.oninput = tall2.oninput = leggSammen;
+  </script>
+
+</body>
+</html>
